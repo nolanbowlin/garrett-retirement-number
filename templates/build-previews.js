@@ -41,7 +41,27 @@ var JOBS = [
   { template: 'newsletter/newsletter-quarterly-template.html',
     output:   'newsletter/newsletter-quarterly-preview.html',
     data:     DATA.newsletterQuarterly,
-    label:    'Quarterly review' }
+    label:    'Quarterly review' },
+  { template: 'correspondence/corr-01-letter-template.html',
+    output:   'correspondence/corr-01-letter-preview.html',
+    data:     DATA.corr01Letter,
+    label:    'Correspondence A, the letter' },
+  { template: 'correspondence/corr-02-logo-band-template.html',
+    output:   'correspondence/corr-02-logo-band-preview.html',
+    data:     DATA.corr02LogoBand,
+    label:    'Correspondence B, logo band' },
+  { template: 'correspondence/corr-03-credentials-template.html',
+    output:   'correspondence/corr-03-credentials-preview.html',
+    data:     DATA.corr03Credentials,
+    label:    'Correspondence C, credentials' },
+  { template: 'correspondence/corr-04-scenario-template.html',
+    output:   'correspondence/corr-04-scenario-preview.html',
+    data:     DATA.corr04Scenario,
+    label:    'Correspondence D, the scenario' },
+  { template: 'correspondence/corr-05-followup-template.html',
+    output:   'correspondence/corr-05-followup-preview.html',
+    data:     DATA.corr05Followup,
+    label:    'Correspondence E, the follow up' }
 ];
 
 /* A banner dropped into the top of every preview. It exists so that a file

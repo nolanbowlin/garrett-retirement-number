@@ -62,7 +62,8 @@ or modify the Make scenario.
 | `templates/newsletter/` monthly | Template and preview both built. Short form, one planning topic. 15 tokens. Preview is a September 2026 send. |
 | `templates/newsletter/` quarterly | Template and preview both built. Long form: feature, ninety day deadlines, market note, anonymised story, two CTAs. 28 tokens. Preview is a Q4 2026 send. |
 | `assets/` | The published image repo itself, a git checkout of `nolanbowlin/peachtree-brand-assets`. Live on GitHub Pages, verified 200. |
-| `templates/00-index.html` | Front door to the template suite. |
+| `templates/00-index.html` | Front door to the suite. Live thumbnails of all nine pieces. |
+| `templates/correspondence/` | Five cold outreach formats for referral partners, plus `correspondence-notes.md` on sequence, partner types and the FINRA and CAN-SPAM limits. |
 
 ## Decisions already made, do not relitigate
 

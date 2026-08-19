@@ -9,7 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Mulish:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --red:#D2232A; --ink:#111111; --slate:#394249;
+  --red:#D2232A; --red-press:#B01D23; --red-tint:rgba(210,35,42,.07);
+  --ink:#111111; --slate:#394249;
   --white:#FFFFFF; --paper:#F7F6F4; --hairline:#E4E2DF;
   --body:#3A3A3A; --muted:#6B6B6B; --r:10px;
   --head:'Tinos','Times New Roman',Times,serif;
@@ -18,100 +19,162 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--paper);color:var(--body);font:16px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
-.wrap{max-width:1000px;margin:0 auto;padding:0 28px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
 
-header .band{background:var(--white);padding:26px 0;border-bottom:3px solid var(--red)}
-header .band img{height:52px;display:block}
-header .title{background:var(--white);padding:52px 0 46px;border-bottom:1px solid var(--hairline)}
-h1{font:400 clamp(2.1rem,5.2vw,3.2rem)/1.1 var(--head);color:var(--ink);letter-spacing:-.01em}
-h1 em{font-style:italic;color:var(--red)}
-.sub{color:var(--muted);margin-top:16px;max-width:660px;font-size:16.5px}
+.mast .band{background:var(--white);padding:26px 0;border-bottom:3px solid var(--red)}
+.mast .band img{height:52px;display:block}
+.mast .title{background:var(--white);padding:52px 0 46px;border-bottom:1px solid var(--hairline)}
+.mast h1{font:400 clamp(2.1rem,5.2vw,3.3rem)/1.1 var(--head);color:var(--ink);letter-spacing:-.01em}
+.mast h1 em{font-style:italic;color:var(--red)}
+.mast .sub{color:var(--muted);margin-top:16px;max-width:680px;font-size:16.5px}
+.mast .sub b{color:var(--ink);font-weight:700}
+.mast .links{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
+.mast .links a{display:inline-block;background:var(--red);color:#fff;text-decoration:none;
+  font:700 12px/1 var(--sans);padding:13px 20px;border-radius:var(--r)}
+.mast .links a.ghost{background:transparent;color:var(--ink);border:1px solid var(--hairline)}
+.mast .links a:hover{filter:brightness(1.08)}
 
-section{padding:52px 0;border-bottom:1px solid var(--hairline)}
-section:last-of-type{border-bottom:0}
-.label{display:inline-flex;align-items:center;gap:9px;font:700 10.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+section{padding:46px 0 10px}
+.label{display:inline-flex;align-items:center;gap:9px;font:700 10.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
 .label::before{content:"";width:20px;height:2px;background:var(--red);flex:none}
-h2{font:400 29px/1.2 var(--head);color:var(--ink);margin-bottom:12px}
-p{margin-bottom:14px;max-width:78ch}
+h2{font:400 29px/1.2 var(--head);color:var(--ink);margin-bottom:10px}
+section > .wrap > p{max-width:78ch;margin-bottom:8px}
 code{font:12.5px/1.5 var(--mono);background:var(--white);border:1px solid var(--hairline);padding:2px 6px;border-radius:4px;color:var(--ink);overflow-wrap:anywhere}
 
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:24px}
+.howto{background:var(--slate);color:#fff;padding:26px 28px;margin-top:26px;border-radius:var(--r);
+  display:grid;grid-template-columns:auto 1fr;gap:14px 16px;align-items:start}
+.howto .n{width:26px;height:26px;background:var(--red);color:#fff;border-radius:50%;
+  font:700 13px/26px var(--sans);text-align:center;flex:none}
+.howto .t{font-size:14.5px;line-height:1.65;color:#C9CDD1;max-width:82ch}
+.howto .t b{color:#fff}
+
+.note{background:var(--white);border:1px solid var(--hairline);border-left:4px solid var(--red);
+  border-radius:0 var(--r) var(--r) 0;padding:20px 22px;margin-top:24px}
+.note b.hd{display:block;font:700 10.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.note p{font-size:14px;max-width:80ch}
+.note p + p{margin-top:10px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px;margin-top:26px}
 .card{background:var(--white);border:1px solid var(--hairline);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
-.card .top{padding:22px 22px 18px;flex:1}
-.card .kind{font:700 10px/1 var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
-.card h3{font:400 21px/1.25 var(--head);color:var(--ink);margin-bottom:10px}
-.card p{font-size:14px;line-height:1.65;color:var(--body);margin:0}
-.card .meta{font:500 11.5px/1.7 var(--mono);color:var(--muted);padding:0 22px 16px}
-.card .links{display:flex;border-top:1px solid var(--hairline)}
-.card .links a{flex:1;text-align:center;padding:14px 10px;text-decoration:none;font:700 13px/1 var(--sans);color:var(--ink);transition:background .15s}
-.card .links a:hover{background:var(--paper)}
-.card .links a+a{border-left:1px solid var(--hairline)}
-.card .links a.primary{background:var(--red);color:#fff}
-.card .links a.primary:hover{background:#B01D23}
+.card .frame{position:relative;height:400px;overflow:hidden;background:var(--paper);border-bottom:1px solid var(--hairline)}
+.card iframe{width:600px;border:0;transform-origin:0 0;position:absolute;top:0;left:0;pointer-events:none;background:#fff}
+.card .meta{padding:18px 20px;flex:1;display:flex;flex-direction:column}
+.card .nm{font:400 20px/1.25 var(--head);color:var(--ink)}
+.card .fl{font:500 11px/1.5 var(--mono);color:var(--muted);margin-top:6px;word-break:break-all}
+.card .ds{font-size:13.5px;line-height:1.65;color:var(--body);margin-top:11px;flex:1}
+.card .use{font-size:12.5px;line-height:1.6;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--hairline)}
+.card .use b{color:var(--red);text-transform:uppercase;letter-spacing:.1em;font-size:10px;display:block;margin-bottom:4px}
+.card .open{display:flex;border-top:1px solid var(--hairline)}
+.card .open a{flex:1;text-align:center;text-decoration:none;font:700 12px/1 var(--sans);padding:15px 8px}
+.card .open a.prev{background:var(--red);color:#fff;flex:2;padding:16px 8px}
+.card .open a.tmpl{background:var(--white);color:var(--muted);flex:1;border-left:1px solid var(--hairline)}
+.card .open a:hover{filter:brightness(1.08)}
+.card .open a.tmpl:hover{background:var(--paper);color:var(--ink)}
 
-.flow{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0;align-items:stretch}
-.flow .step{flex:1;min-width:190px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--r);padding:18px}
-.flow .n{font:400 26px/1 var(--head);color:var(--red);margin-bottom:8px}
-.flow .t{font:700 13.5px/1.4 var(--sans);color:var(--ink);margin-bottom:6px}
-.flow .d{font-size:13px;line-height:1.6;color:var(--muted)}
+/* Hover overlay on the thumbnail. The iframe has pointer-events:none so the
+   anchor above it takes every click, which is why a live preview can be used
+   as a thumbnail without the email's own links being reachable. */
+.card .hit{position:absolute;inset:0;z-index:2;display:block;text-decoration:none;
+  background:linear-gradient(to bottom,rgba(17,17,17,0) 55%,rgba(17,17,17,.86));opacity:0;transition:opacity .18s}
+.card:hover .hit{opacity:1}
+.card .hit .cue{position:absolute;left:0;right:0;bottom:16px;text-align:center;color:#fff;
+  font:700 11.5px/1 var(--sans);letter-spacing:.1em}
+.card .frame::after{content:"Click to open";position:absolute;top:0;right:0;z-index:1;background:var(--red);color:#fff;
+  font:700 10px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border-bottom-left-radius:var(--r)}
+.card:hover .frame::after{opacity:0}
 
-.callout{background:var(--white);border:1px solid var(--hairline);border-left:4px solid var(--red);
-  border-radius:0 var(--r) var(--r) 0;padding:20px 22px;margin:18px 0}
-.callout p:last-child{margin-bottom:0}
+.wide{grid-column:1 / -1}
+.wide .frame{height:540px}
+.wide .inner{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:820px){.wide .inner{grid-template-columns:1fr}}
 
-table{width:100%;border-collapse:collapse;margin:18px 0;background:var(--white);font-size:14px;border:1px solid var(--hairline);border-radius:var(--r);overflow:hidden}
-th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--hairline);vertical-align:top}
-tr:last-child td{border-bottom:0}
-th{background:var(--slate);color:#fff;font:700 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase}
-
-footer{background:var(--ink);color:#9A9A9A;padding:40px 0;font-size:13px}
+footer{background:var(--ink);color:#9A9A9A;padding:40px 0;font-size:13px;margin-top:50px}
 footer strong{color:#fff}
-footer p{max-width:74ch}
-@media(max-width:600px){section{padding:36px 0}table{display:block;overflow-x:auto}}
+footer p{max-width:76ch}
+@media(max-width:600px){section{padding:34px 0 6px}.card .frame{height:340px}}
 </style>
 </head>
 <body>
 
-<header>
+<header class="mast">
   <div class="band"><div class="wrap">
     <img src="https://nolanbowlin.github.io/peachtree-brand-assets/img/peachtree-planning-logo.png" alt="Peachtree Planning">
   </div></div>
   <div class="title"><div class="wrap">
-    <h1>Email <em>Template Suite</em></h1>
-    <div class="sub">Everything Garrett sends, in one place. Each template exists twice: a version with merge tokens for the send platform, and a filled version so the layout and tone can be read before anything goes out.</div>
+    <h1>The <em>Suite</em></h1>
+    <div class="sub">One lead generation page and eight emails. Every email ships twice, side by side in the same folder: a <b>template</b> carrying the tokens you fill in, and a <b>preview</b> showing real content already in the design. The thumbnails below are the previews, live rendered rather than screenshots.</div>
+    <div class="links">
+      <a href="../brand/peachtree-brand-package.html">Brand Package</a>
+      <a class="ghost" href="../BRAND.md">BRAND.md</a>
+      <a class="ghost" href="../HANDOFF.md">HANDOFF.md</a>
+      <a class="ghost" href="https://github.com/nolanbowlin/peachtree-brand-assets">Asset Repo</a>
+    </div>
   </div></div>
 </header>
 
 <section><div class="wrap">
-  <div class="label">Start here</div>
-  <h2>How the two versions work</h2>
-  <p>Open a preview to see what a recipient sees. Open a template only if you are wiring it into a sending tool. The preview is generated from the template, so they cannot disagree.</p>
-  <div class="flow">
-    <div class="step"><div class="n">1</div><div class="t">Edit the template</div><div class="d">Change layout, structure or the fixed copy. Leave the <code>{{tokens}}</code> alone.</div></div>
-    <div class="step"><div class="n">2</div><div class="t">Edit the data</div><div class="d">Change the sample content in <code>preview-data.json</code>.</div></div>
-    <div class="step"><div class="n">3</div><div class="t">Rebuild</div><div class="d">Run <code>node build-previews.js</code> from this folder.</div></div>
-    <div class="step"><div class="n">4</div><div class="t">Review</div><div class="d">Open the preview. It fails the build rather than shipping a visible token.</div></div>
+  <div class="howto">
+    <div class="n">1</div>
+    <div class="t"><b>Click any thumbnail</b> to open that page full size, exactly as it lands in an inbox or a browser. The thumbnails are live, not screenshots, so they are small on purpose.</div>
+    <div class="n">2</div>
+    <div class="t"><b>Every card has two buttons.</b> The red one opens the finished thing. The white one opens the working file underneath it, which is only useful if you are the person building the send.</div>
+    <div class="n">3</div>
+    <div class="t"><b>Nothing here is approved yet.</b> Every email carries a banner saying so, and every one still needs a Guardian advertising review ID before it can go out. Start that review early, it is the slowest part of the schedule.</div>
+    <div class="n">4</div>
+    <div class="t"><b>Tell us what to change.</b> Layout, order, wording, the questions in the tool, any of it. None of this is fixed.</div>
   </div>
-  <div class="callout">
-    <p><strong>Never edit a preview directly.</strong> It is a build artefact and anything typed into it is gone on the next run. Every preview also carries a banner marking it as not approved for sending. Take that banner off deliberately, not by accident.</p>
+
+  <div class="note">
+    <b class="hd">Two versions of everything</b>
+    <p><b style="color:var(--red)">PREVIEW</b> is the approval copy. Filled in, ready to put in front of Garrett. The figures in the report preview are the real output of the tool's own model for the household described in it, so it reconciles if anyone checks the arithmetic.</p>
+    <p><b style="color:var(--ink)">TEMPLATE</b> is the working file, with <code>{{tokens}}</code> where the content goes. This is the one that gets wired into the sending platform.</p>
+    <p>Each preview is generated from the template beside it by <code>build-previews.js</code>. Change a layout in the template and re-run <code>node build-previews.js</code> to bring the previews back in step. Never hand edit a <code>-preview.html</code>, it gets overwritten.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="label">The front door</div>
+  <h2>The tool</h2>
+  <p>The only piece here that is not an email. It is what the ads point at, and it is the thing that produces every lead the rest of the suite talks to. Eight sections, twenty five scored questions, and a deliberate asymmetry: the score is given away, the dollar figures are blurred until an email address is handed over.</p>
+  <div class="grid">
+    <div class="card wide">
+      <div class="frame">
+        <iframe src="../tool/retirement-number.html" data-natural="1280" scrolling="no" loading="lazy"></iframe>
+        <a class="hit" href="../tool/retirement-number.html"><span class="cue">Open the tool and run it end to end</span></a>
+      </div>
+      <div class="meta">
+        <div class="nm">What is your retirement number?</div>
+        <div class="fl">tool/retirement-number.html</div>
+        <div class="ds">A landing screen, eight question sections, a results screen showing the READY score and five category bars, then the gate. Behind the gate: the retirement number, the projected shortfall or surplus, and the monthly figure that closes it. Self contained single file with no build step and no dependencies.</div>
+        <div class="use"><b>Use it for</b>Paid traffic from Meta and LinkedIn, and as the soft call to action at the bottom of the quarterly. It works end to end right now, including the gate, so it can be demonstrated before the backend exists.</div>
+      </div>
+      <div class="open">
+        <a class="prev" href="../tool/retirement-number.html">Open the Tool</a>
+        <a class="tmpl" href="../README.md">The Model</a>
+      </div>
+    </div>
   </div>
 </div></section>
 
 <section><div class="wrap">
   <div class="label">Fulfilment</div>
   <h2>The report</h2>
-  <p>Sent automatically when somebody completes the retirement number tool and hands over their details. This is the thing that was promised in exchange for the email address, so it has to arrive quickly and it has to be worth the trade.</p>
-  <div class="cards">
+  <p>Sent the moment somebody finishes the tool and hands over their details. This is the thing that was promised in exchange for the email address, so it has to arrive fast and it has to be worth the trade. It is the only email in the suite that is triggered rather than scheduled.</p>
+  <div class="grid">
     <div class="card">
-      <div class="top">
-        <div class="kind">Triggered</div>
-        <h3>Retirement number report</h3>
-        <p>The number, what they are on track for, the gap between the two, and the two categories where the plan is thinnest. Ends on a booking call to action.</p>
+      <div class="frame">
+        <iframe src="report/email-report-preview.html" data-natural="600" scrolling="no" loading="lazy"></iframe>
+        <a class="hit" href="report/email-report-preview.html"><span class="cue">Open the full email</span></a>
       </div>
-      <div class="meta">35 merge tokens &middot; 28KB &middot; report/</div>
-      <div class="links">
-        <a class="primary" href="report/email-report-preview.html">Preview</a>
-        <a href="report/email-report-template.html">Template</a>
+      <div class="meta">
+        <div class="nm">Retirement number report</div>
+        <div class="fl">report/email-report-{template|preview}.html</div>
+        <div class="ds">The number, what they are on track for, the gap between the two, the READY score with its five bars, and the two categories where the plan is thinnest. Closes on the assumptions, because a reader who reacts to the number without them arrives at the call arguing with the model.</div>
+        <div class="use"><b>Use it for</b>Automatic fulfilment, triggered by the tool. Thirty five merge tokens, all of them mapped in README.md for whoever builds the send.</div>
+      </div>
+      <div class="open">
+        <a class="prev" href="report/email-report-preview.html">Preview the Email</a>
+        <a class="tmpl" href="report/email-report-template.html">Template</a>
       </div>
     </div>
   </div>
@@ -120,30 +183,130 @@ footer p{max-width:74ch}
 <section><div class="wrap">
   <div class="label">Recurring</div>
   <h2>The newsletters</h2>
-  <p>Two different products rather than the same one at two speeds. The monthly earns its open by teaching one thing. The quarterly is the piece somebody actually sits down with. Do not send both in the same month: if they collide, the quarterly wins and the monthly skips.</p>
-  <div class="cards">
+  <p>Two different products rather than the same one at two speeds. The monthly earns its open by teaching one thing. The quarterly is the piece somebody actually sits down with. Do not send both in the same month: when they collide, the quarterly wins and the monthly skips.</p>
+  <div class="grid">
+
     <div class="card">
-      <div class="top">
-        <div class="kind">Monthly</div>
-        <h3>The monthly note</h3>
-        <p>One planning topic, a pulled out takeaway, a short calendar note and a single call to action. Short on purpose, because a monthly cadence only survives if each send is cheap to produce and cheap to read.</p>
+      <div class="frame">
+        <iframe src="newsletter/newsletter-monthly-preview.html" data-natural="600" scrolling="no" loading="lazy"></iframe>
+        <a class="hit" href="newsletter/newsletter-monthly-preview.html"><span class="cue">Open the full email</span></a>
       </div>
-      <div class="meta">15 merge tokens &middot; 17KB &middot; newsletter/</div>
-      <div class="links">
-        <a class="primary" href="newsletter/newsletter-monthly-preview.html">Preview</a>
-        <a href="newsletter/newsletter-monthly-template.html">Template</a>
+      <div class="meta">
+        <div class="nm">The monthly note</div>
+        <div class="fl">newsletter/newsletter-monthly-{template|preview}.html</div>
+        <div class="ds">Masthead with a date badge, a from my desk block with the headshot, one planning topic, a pulled out takeaway, a short calendar note and a single call to action. Short on purpose.</div>
+        <div class="use"><b>Use it for</b>Eleven sends a year, skipping the month the quarterly lands. Fifteen merge tokens. A monthly cadence only survives if each send is cheap to produce and cheap to read.</div>
+      </div>
+      <div class="open">
+        <a class="prev" href="newsletter/newsletter-monthly-preview.html">Preview the Email</a>
+        <a class="tmpl" href="newsletter/newsletter-monthly-template.html">Template</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="frame">
+        <iframe src="newsletter/newsletter-quarterly-preview.html" data-natural="600" scrolling="no" loading="lazy"></iframe>
+        <a class="hit" href="newsletter/newsletter-quarterly-preview.html"><span class="cue">Open the full email</span></a>
+      </div>
+      <div class="meta">
+        <div class="nm">The quarterly review</div>
+        <div class="fl">newsletter/newsletter-quarterly-{template|preview}.html</div>
+        <div class="ds">A slate cover statement with a real title, the from my desk block, a three part feature, the ninety day deadline grid, a plain reading of the quarter, one anonymised pattern from real work, then two calls to action.</div>
+        <div class="use"><b>Use it for</b>Four sends a year. Twenty eight merge tokens. The deadline grid is the section people forward, and it is the reason to send this in the second half of November rather than late December.</div>
+      </div>
+      <div class="open">
+        <a class="prev" href="newsletter/newsletter-quarterly-preview.html">Preview the Email</a>
+        <a class="tmpl" href="newsletter/newsletter-quarterly-template.html">Template</a>
+      </div>
+    </div>
+
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="label">Outreach</div>
+  <h2>Correspondence</h2>
+  <p>Five formats for cold and early contact with referral partners: CPAs, business and M&amp;A attorneys, brokers, bankers. Not for clients, not for people who came in through the tool, and not for anyone already on the newsletter.</p>
+  <p>The counterintuitive one is the letter. It is the plainest template in the folder and it beats the prettier ones on a first touch, because the recipient is deciding one thing in two seconds: is this a person or is this a campaign. A masthead and a button answer that the wrong way. Sequence, partner types and the compliance limits are in <code>correspondence/correspondence-notes.md</code>.</p>
+  <div class="grid">
+    <div class="card">
+      <div class="frame">
+        <iframe src="correspondence/corr-01-letter-preview.html" data-natural="600" scrolling="no" loading="lazy"></iframe>
+        <a class="hit" href="correspondence/corr-01-letter-preview.html"><span class="cue">Open the full email</span></a>
+      </div>
+      <div class="meta">
+        <div class="nm">A. The letter</div>
+        <div class="fl">correspondence/corr-01-letter-{template|preview}.html</div>
+        <div class="ds">No masthead, no logo at the top, no button. A single red rule, the note, then a signature carrying the logo. Opens the way an email from a person opens.</div>
+        <div class="use"><b>Use it for</b><b>The default first touch.</b> Genuinely cold, one recipient at a time, sent from Garrett's own mailbox rather than a platform.</div>
+      </div>
+      <div class="open">
+        <a class="prev" href="correspondence/corr-01-letter-preview.html">Preview the Email</a>
+        <a class="tmpl" href="correspondence/corr-01-letter-template.html">Template</a>
       </div>
     </div>
     <div class="card">
-      <div class="top">
-        <div class="kind">Quarterly</div>
-        <h3>The quarterly review</h3>
-        <p>A cover statement, a feature, the ninety day deadline grid, a plain reading of the quarter, one anonymised pattern from real work, and two calls to action. The deadline grid is the part people forward.</p>
+      <div class="frame">
+        <iframe src="correspondence/corr-02-logo-band-preview.html" data-natural="600" scrolling="no" loading="lazy"></iframe>
+        <a class="hit" href="correspondence/corr-02-logo-band-preview.html"><span class="cue">Open the full email</span></a>
       </div>
-      <div class="meta">28 merge tokens &middot; 24KB &middot; newsletter/</div>
-      <div class="links">
-        <a class="primary" href="newsletter/newsletter-quarterly-preview.html">Preview</a>
-        <a href="newsletter/newsletter-quarterly-template.html">Template</a>
+      <div class="meta">
+        <div class="nm">B. Logo band</div>
+        <div class="fl">correspondence/corr-02-logo-band-{template|preview}.html</div>
+        <div class="ds">Logo, red rule, headline, three short paragraphs, one button, signature. The everyday note once there is any relationship at all.</div>
+        <div class="use"><b>Use it for</b>Someone who already knows him, or the same note going to a handful of people at one firm. Not a cold first touch.</div>
+      </div>
+      <div class="open">
+        <a class="prev" href="correspondence/corr-02-logo-band-preview.html">Preview the Email</a>
+        <a class="tmpl" href="correspondence/corr-02-logo-band-template.html">Template</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="frame">
+        <iframe src="correspondence/corr-03-credentials-preview.html" data-natural="600" scrolling="no" loading="lazy"></iframe>
+        <a class="hit" href="correspondence/corr-03-credentials-preview.html"><span class="cue">Open the full email</span></a>
+      </div>
+      <div class="meta">
+        <div class="nm">C. Credentials</div>
+        <div class="fl">correspondence/corr-03-credentials-{template|preview}.html</div>
+        <div class="ds">Leads with a three cell credential strip: certifications, licences, firm. Facts rather than claims, because a claim in that strip stops it working.</div>
+        <div class="use"><b>Use it for</b>Attorneys, CPAs, valuation firms, bankers. Anyone whose own licence is exposed when they make a referral. Never for business owners.</div>
+      </div>
+      <div class="open">
+        <a class="prev" href="correspondence/corr-03-credentials-preview.html">Preview the Email</a>
+        <a class="tmpl" href="correspondence/corr-03-credentials-template.html">Template</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="frame">
+        <iframe src="correspondence/corr-04-scenario-preview.html" data-natural="600" scrolling="no" loading="lazy"></iframe>
+        <a class="hit" href="correspondence/corr-04-scenario-preview.html"><span class="cue">Open the full email</span></a>
+      </div>
+      <div class="meta">
+        <div class="nm">D. The scenario</div>
+        <div class="fl">correspondence/corr-04-scenario-{template|preview}.html</div>
+        <div class="ds">Opens on a slate panel with a client situation the reader recognises, before it says anything about Garrett at all. The greeting comes after.</div>
+        <div class="use"><b>Use it for</b>CPAs and attorneys who see owner clients daily, and as a third touch. The scenario must be anonymised and true.</div>
+      </div>
+      <div class="open">
+        <a class="prev" href="correspondence/corr-04-scenario-preview.html">Preview the Email</a>
+        <a class="tmpl" href="correspondence/corr-04-scenario-template.html">Template</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="frame">
+        <iframe src="correspondence/corr-05-followup-preview.html" data-natural="600" scrolling="no" loading="lazy"></iframe>
+        <a class="hit" href="correspondence/corr-05-followup-preview.html"><span class="cue">Open the full email</span></a>
+      </div>
+      <div class="meta">
+        <div class="nm">E. The follow up</div>
+        <div class="fl">correspondence/corr-05-followup-{template|preview}.html</div>
+        <div class="ds">The thinnest thing in the folder. No masthead, no images at all, plain text signature. Lands in the primary tab and reads like a person clearing their sent folder.</div>
+        <div class="use"><b>Use it for</b>Touch two, five to seven business days after the letter. Under 60 words. Offer an easy no.</div>
+      </div>
+      <div class="open">
+        <a class="prev" href="correspondence/corr-05-followup-preview.html">Preview the Email</a>
+        <a class="tmpl" href="correspondence/corr-05-followup-template.html">Template</a>
       </div>
     </div>
   </div>
@@ -152,22 +315,49 @@ footer p{max-width:74ch}
 <section><div class="wrap">
   <div class="label">The rules</div>
   <h2>What applies to every send</h2>
-  <table>
-    <tr><th>Rule</th><th>Why</th></tr>
-    <tr><td>The firm disclosure block is not editable</td><td>It is Garrett's registered disclosure, not boilerplate. Trimming it for design reasons is a compliance problem, not a layout choice.</td></tr>
-    <tr><td>Nothing sends without a review ID</td><td>Every approved public piece carries a Guardian advertising review ID and expiry in the footer. There is a <code>{{review_id}}</code> token waiting in each template.</td></tr>
-    <tr><td>Market commentary stays descriptive</td><td>No forecasts, no performance figures for a named holding, nothing that reads as a recommendation. If a send has nothing safe to say there, delete the block rather than reaching for something.</td></tr>
-    <tr><td>Physical address and unsubscribe are required</td><td>CAN-SPAM, on all of it.</td></tr>
-    <tr><td>Never overwrite a published image</td><td>The asset host caches hard and mail already delivered cannot be repaired. Change means a new filename.</td></tr>
-    <tr><td>Watch the file size</td><td>Gmail clips a message over roughly 102KB and hides everything after the cut, including the unsubscribe link. The largest template here is 28KB.</td></tr>
-  </table>
-  <p>Full detail on all of this is in <code>../brand/peachtree-brand-package.html</code>.</p>
+  <div class="note">
+    <b class="hd">Compliance</b>
+    <p>The firm disclosure block is not editable. It is Garrett's registered disclosure, not boilerplate, and trimming it for design reasons is a compliance problem rather than a layout choice.</p>
+    <p>Nothing sends without a review ID. Every approved public piece carries a Guardian advertising review ID and expiry in the footer, in the format their own site uses, <code>8894350.1 Exp 5.2028</code>. There is a <code>{{review_id}}</code> token waiting in each template.</p>
+    <p>Market commentary is the highest risk content in the suite. Descriptive, never predictive. No forecasts, no performance figures for a named holding, nothing that reads as a recommendation. If a send has nothing safe to say there, delete the block rather than reaching for something.</p>
+    <p>A physical address and a working unsubscribe link are required by CAN-SPAM on all of it.</p>
+  </div>
+  <div class="note">
+    <b class="hd">Production</b>
+    <p>Never overwrite a published image. The asset host caches hard and mail already delivered cannot be repaired. Changing an image means a new filename, never an overwrite.</p>
+    <p>Watch the file size. Gmail clips a message over roughly 102KB and hides everything after the cut, including the unsubscribe link. The largest file in this suite is 28KB, so there is room, but images and long copy eat it quickly.</p>
+    <p>Full detail on all of this is in the <a href="../brand/peachtree-brand-package.html">brand package</a>.</p>
+  </div>
 </div></section>
 
 <footer><div class="wrap">
-  <p><strong>Peachtree Planning email template suite</strong>, version 1.0, August 2026. Prepared by the Nolan Scott Team for Garrett Williamson, CFP&reg;, CEPA&reg;.</p>
+  <p><strong>Peachtree Planning suite</strong>, version 1.0, August 2026. Prepared by the Nolan Scott Team for Garrett Williamson, CFP&reg;, CEPA&reg;.</p>
   <p style="margin-bottom:0">Nothing in this folder is approved for public distribution until it has been through Guardian advertising review.</p>
 </div></footer>
+
+<script>
+// Scale each preview iframe so a 600px email, or a 640px page, reads as a
+// thumbnail inside the card. Runs on load and on resize because the cards are
+// a fluid grid and the scale factor is a function of the card's width.
+function fit(){
+  document.querySelectorAll('.card .frame').forEach(function(f){
+    var el = f.querySelector('iframe');
+    if(!el) return;
+    // Each iframe declares the width it should be rendered at. The emails are
+    // 600px by design. The tool is a responsive page, so it is rendered at a
+    // desktop width and scaled down: rendering it narrow would show its phone
+    // layout, and scaling anything UP past 1 makes a blurry thumbnail.
+    var natural = parseInt(el.getAttribute('data-natural'), 10) || 600;
+    var s = Math.min(1, f.clientWidth / natural);
+    el.style.width = natural + 'px';
+    el.style.transformOrigin = '0 0';
+    el.style.transform = 'scale(' + s + ')';
+    el.style.height = Math.ceil(f.clientHeight / s) + 'px';
+  });
+}
+window.addEventListener('load', fit);
+window.addEventListener('resize', fit);
+</script>
 
 </body>
 </html>
