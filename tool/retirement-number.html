@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is Your Retirement Number? | Garrett Williamson, CFP&reg; CEPA&reg;</title>
+<meta name="description" content="Twenty-five questions across the five things that decide whether you can actually stop working: your runway, your real expenses, your assets, how much rides on one asset, and the income that shows up when the paychecks stop. Scored out of 100, with your retirement number. Free, about ten minutes.">
+<meta name="theme-color" content="#D2232A">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:title" content="What is your retirement number?">
+<meta property="og:description" content="Find out what you actually need before you can stop working, and how far the plan is from it. Twenty-five questions, about ten minutes.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Mulish:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ═══ PIXELS ═══
+     Placeholder. Drop Garrett's Meta Pixel and any Google tag in here before
+     this runs behind paid traffic, or the ad account has no conversion signal
+     to optimise against. The gate fires window.firePixelEvent('Lead') if it
+     exists, so define that function here and nothing else needs touching. -->
+
+<style>
+/* ═══ THE RETIREMENT NUMBER, PAGE LOCAL ═══
+   Single file on purpose. This is an ad landing page: it gets dropped on a
+   host, pointed at from Meta and LinkedIn, and never shares a stylesheet with
+   anything. The screen architecture is the TRADE Exit Score architecture
+   (landing, quiz, results with a blurred number, gate, confirmation) because
+   that flow converts.
+
+   The brand is Peachtree Planning, sampled from the live site rather than
+   guessed: white page, ink text, #D2232A red, Tinos for headlines at weight
+   400 even when large, Mulish for everything else, and a 10px radius on
+   buttons. It is a LIGHT page. An earlier draft of this file was dark crimson
+   on near black and it was wrong. See BRAND.md.
+
+   House rule carried across: no em dashes in the copy, and every colour comes
+   from a variable rather than a hard-coded hex. */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#D2232A;
+  --red-press:#B01D23;
+  --red-tint:rgba(210,35,42,.07);
+  --ink:#111111;
+  --slate:#394249;
+  --charcoal:#202122;
+  --white:#FFFFFF;
+  --paper:#F7F6F4;
+  --hairline:#E4E2DF;
+  --muted:#6B6B6B;
+  --r:10px;
+  --f-head:'Tinos','Times New Roman',Times,serif;
+  --f-body:'Mulish',Arial,Helvetica,sans-serif;
+}
+html{background:var(--white);color:var(--ink);font-family:var(--f-body);
+  font-size:16px;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  padding:0 0 40px;background:var(--white);
+  padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+@supports (min-height:100svh){body{min-height:100svh}}
+.rn-wrap{width:100%;max-width:640px;padding:0 20px;margin:0 auto}
+
+/* ── Logo ──
+   The file referenced here has a black wordmark, so it only ever sits on white
+   or paper. A real reversed lockup for the slate band exists in
+   brand-assets/img/peachtree-planning-logo-reversed.png. Use that file rather
+   than recolouring this one, which would leave the mark red and the wordmark
+   white at different weights. */
+.rn-logo{display:block;margin:0 auto;width:220px;max-width:62%;height:auto}
+.rn-logohead{padding:34px 0 30px;text-align:center}
+
+/* ── Progress ── */
+#pbwrap{width:100%;position:sticky;top:0;z-index:100;background:var(--white);
+  padding:12px 0 0;display:none;box-shadow:0 1px 0 var(--hairline)}
+#pbwrap.visible{display:block}
+.pb-track{height:3px;background:var(--hairline);width:100%}
+.pb-fill{height:3px;background:var(--red);width:0;transition:width .4s ease}
+.pb-label{text-align:right;padding:7px 0 10px;font-family:var(--f-body);
+  font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+
+/* ── Screens ── */
+.screen{display:none;width:100%}
+.screen.active{display:block;animation:rnFade .3s ease}
+@keyframes rnFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.screen.active{animation:none}}
+
+/* ── Buttons ──
+   17px 35px and a 10px radius are the live site's button, rounded off from
+   17.776 and 35.552. The radius is the most recognisable detail on this brand
+   after the red itself, so it does not get changed to suit a layout. */
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--red);color:var(--white);font-family:var(--f-body);
+  font-size:16px;font-weight:700;letter-spacing:0;padding:17px 35px;
+  border-radius:var(--r);border:none;cursor:pointer;width:100%;max-width:380px;
+  text-decoration:none;transition:background .15s,transform .1s}
+.btn-primary:hover{background:var(--red-press)}
+.btn-primary:active{transform:scale(.98)}
+.btn-primary[disabled]{opacity:.5;cursor:default}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:var(--white);
+  color:var(--muted);font-family:var(--f-body);font-size:15px;font-weight:600;
+  padding:16px 24px;border-radius:var(--r);
+  border:1px solid var(--hairline);cursor:pointer;transition:color .15s,border-color .15s}
+.btn-secondary:hover{color:var(--ink);border-color:var(--ink)}
+
+/* ── Landing ── */
+#screen-landing{padding-top:8px;text-align:center}
+.rn-eyebrow{font-family:var(--f-body);font-size:11px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--red);margin-bottom:20px}
+.rn-h1{font-family:var(--f-head);font-size:clamp(38px,9vw,62px);font-weight:400;
+  line-height:1.08;margin-bottom:22px;letter-spacing:-.01em;color:var(--ink)}
+.rn-h1 em{font-style:italic;color:var(--red)}
+.rn-sub{font-size:17px;color:var(--muted);line-height:1.65;max-width:490px;margin:0 auto 40px}
+.rn-bullets{text-align:left;max-width:430px;margin:0 auto 44px;display:flex;
+  flex-direction:column;gap:15px}
+.rn-bullet{display:flex;align-items:flex-start;gap:13px;font-size:15.5px;color:var(--ink);line-height:1.55}
+.rn-bullet i{width:7px;height:7px;border-radius:50%;background:var(--red);flex:none;margin-top:8px}
+.rn-meta{font-size:13px;color:var(--muted);margin-top:16px}
+.rn-divider{width:44px;height:2px;background:var(--red);margin:40px auto 0}
+
+/* ── Quiz ── */
+#screen-quiz{padding-top:36px}
+.rn-sectag{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-body);
+  font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--red);margin-bottom:14px}
+.rn-sectag b{width:26px;height:26px;border:1px solid var(--red);display:flex;
+  align-items:center;justify-content:center;font-size:12px;font-weight:700;border-radius:var(--r)}
+.rn-sectitle{font-family:var(--f-head);font-size:31px;font-weight:400;line-height:1.15;
+  margin-bottom:10px;color:var(--ink)}
+.rn-secsub{font-size:14.5px;color:var(--muted);line-height:1.6;margin-bottom:32px}
+.q{margin-bottom:32px}
+.q-text{font-size:16.5px;font-weight:600;line-height:1.5;margin-bottom:6px;color:var(--ink)}
+/* ── Helper text ──
+   This used to be a filled box with a red rule down the left, which gave it the
+   same visual weight as the question it was explaining. On a page of eight
+   questions that reads as eight interruptions rather than eight questions, and
+   it chopped the form into blocks.
+
+   It is now a plain subtitle: same muted grey as the section subtitle, sitting
+   directly under the question and above the control it belongs to. It reads as
+   part of the question, which is what it always was. Do not put the box back.
+   If a helper needs a box to get noticed, the question above it is the thing
+   that needs rewriting. */
+.q-helper{font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:12px;
+  max-width:52ch}
+.q-opts{display:flex;flex-direction:column;gap:8px}
+.q-opt{display:flex;align-items:flex-start;gap:12px;padding:15px 16px;background:var(--white);
+  border:1px solid var(--hairline);border-radius:var(--r);cursor:pointer;
+  transition:border-color .15s,background .15s;-webkit-tap-highlight-color:transparent}
+.q-opt:hover{border-color:var(--muted);background:var(--paper)}
+.q-opt.sel{border-color:var(--red);background:var(--red-tint)}
+.q-opt.err{border-color:var(--red)}
+.q-dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--hairline);flex:none;
+  margin-top:2px;display:flex;align-items:center;justify-content:center;transition:border-color .15s}
+.q-opt:hover .q-dot{border-color:var(--muted)}
+.q-opt.sel .q-dot{border-color:var(--red);background:var(--red)}
+.q-opt.sel .q-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--white)}
+.q-lab{font-size:15px;line-height:1.45}
+.q-sel-wrap{position:relative}
+.q-sel-wrap::after{content:'\25BE';position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  color:var(--muted);pointer-events:none}
+.q-sel,.q-num{width:100%;background:var(--white);border:1px solid var(--hairline);color:var(--ink);
+  font-family:var(--f-body);font-size:16px;padding:15px 16px;border-radius:var(--r);
+  appearance:none;-webkit-appearance:none;transition:border-color .15s}
+.q-sel:focus,.q-num:focus{outline:none;border-color:var(--red)}
+.q-sel{cursor:pointer;padding-right:38px}
+.q-num-wrap{position:relative}
+.q-num-wrap span{position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  color:var(--muted);font-size:16px;pointer-events:none}
+.q-num{padding-left:28px}
+.q-optional{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5}
+.rn-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  margin-top:36px;padding-top:24px;border-top:1px solid var(--hairline);padding-bottom:40px}
+.rn-nav .btn-primary{max-width:none;flex:1}
+
+/* ── Results ── */
+#screen-results{padding-top:40px}
+.rn-score{text-align:center;margin-bottom:40px}
+.rn-score-k{font-family:var(--f-body);font-size:11px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.rn-score-n{font-family:var(--f-head);font-size:clamp(76px,19vw,112px);font-weight:700;
+  line-height:1;transition:color .5s;color:var(--ink)}
+.rn-score-d{font-family:var(--f-head);font-size:26px;color:var(--muted)}
+.rn-band{font-family:var(--f-body);font-size:14.5px;font-weight:600;line-height:1.45;
+  margin-top:12px;padding:9px 18px;border-radius:var(--r);display:inline-block}
+/* ── Bands ──
+   An earlier version ran a four step traffic light through the score: red,
+   copper, green, green. Copper and green are not in the Peachtree palette and
+   a big orange number at the top of the page looked like it belonged to a
+   different brand.
+
+   So the score itself is always ink. It is 112px of Tinos, it does not need a
+   colour to carry weight, and leaving it ink means the only saturated thing on
+   the results screen is the brand red.
+
+   The band pill does the work instead, and it earns red exactly once: a score
+   under 41 is a real warning and the brand colour is the right way to say so.
+   Everything above that sits on paper with ink text. No green, because on
+   track is not a thing this page should be congratulating anyone about before
+   an advisor has looked at it. */
+.rn-score-n{color:var(--ink)}
+.band-0{color:var(--red);background:var(--red-tint);border:1px solid rgba(210,35,42,.28)}
+.band-1,.band-2,.band-3{color:var(--ink);background:var(--paper);border:1px solid var(--hairline)}
+.rn-bk{font-family:var(--f-body);font-size:11px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.rn-row{margin-bottom:18px}
+.rn-row-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:7px}
+.rn-row-l{font-size:15px;font-weight:700;color:var(--ink)}
+.rn-row-s{font-size:12.5px;color:var(--muted);margin-top:2px;line-height:1.4;font-weight:400}
+.rn-row-v{font-family:var(--f-body);font-size:14px;font-weight:700;color:var(--red);flex:none}
+.rn-bar{height:7px;background:var(--hairline);border-radius:4px;overflow:hidden}
+.rn-bar i{display:block;height:100%;background:var(--red);
+  border-radius:4px;width:0;transition:width .8s ease}
+.rn-framing{background:var(--paper);border:1px solid var(--hairline);border-radius:var(--r);
+  padding:22px;margin:36px 0;font-size:15.5px;line-height:1.7;color:var(--ink)}
+
+/* The one dark moment on the page. The number is the payoff, so it gets the
+   slate band the site uses for its own feature sections, and everything around
+   it stays white. No logo goes in here, the wordmark is black. */
+.rn-tease{background:var(--slate);border-radius:var(--r);
+  padding:32px 24px;text-align:center;margin-bottom:14px;position:relative;overflow:hidden}
+.rn-tease-k{font-family:var(--f-body);font-size:10.5px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(255,255,255,.62);margin-bottom:14px}
+.rn-tease-v{font-family:var(--f-head);font-weight:700;font-size:clamp(46px,12vw,66px);
+  color:var(--white);filter:blur(11px);user-select:none;pointer-events:none;
+  line-height:1.15;margin-bottom:14px}
+.rn-tease-l{font-size:13px;color:rgba(255,255,255,.7);line-height:1.55}
+.rn-tease2{display:flex;gap:12px;margin-bottom:28px}
+.rn-tease2 > div{flex:1;background:var(--paper);border:1px solid var(--hairline);
+  border-radius:var(--r);padding:18px 14px;text-align:center}
+.rn-tease2 .rn-tease-k{color:var(--muted);margin-bottom:9px}
+.rn-mini{font-family:var(--f-head);font-weight:700;font-size:clamp(21px,5.5vw,28px);
+  color:var(--ink);filter:blur(8px);user-select:none;pointer-events:none;line-height:1.2}
+.rn-rule{border:none;border-top:1px solid var(--hairline);margin:36px 0}
+.rn-gate-h{font-family:var(--f-head);font-size:27px;font-weight:400;line-height:1.25;
+  margin-bottom:12px;color:var(--ink)}
+.rn-gate-s{font-size:14.5px;color:var(--muted);line-height:1.65;margin-bottom:24px}
+.rn-form{display:flex;flex-direction:column;gap:12px}
+.rn-form input{background:var(--white);border:1px solid var(--hairline);color:var(--ink);
+  font-family:var(--f-body);font-size:16px;padding:16px;border-radius:var(--r);
+  width:100%;transition:border-color .15s}
+.rn-form input:focus{outline:none;border-color:var(--red)}
+.rn-form input::placeholder{color:var(--muted)}
+.rn-form .btn-primary{max-width:none}
+.rn-err{font-size:12.5px;line-height:1.5;color:var(--red);font-weight:600}
+.rn-err[hidden]{display:none}
+.rn-fine{font-size:12px;color:var(--muted);line-height:1.6;margin-top:4px}
+.rn-fine a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.rn-fine a:hover{color:var(--ink)}
+.rn-hp{display:none}
+.rn-loading{text-align:center;padding:40px 20px}
+.rn-spin{width:32px;height:32px;border:3px solid var(--hairline);border-top-color:var(--red);
+  border-radius:50%;animation:rnSpin .8s linear infinite;margin:0 auto 16px}
+@keyframes rnSpin{to{transform:rotate(360deg)}}
+.rn-compliance{font-size:11px;color:#8A8A8A;line-height:1.75;margin-top:32px;
+  padding-top:20px;border-top:1px solid var(--hairline)}
+
+/* ── Confirmation ── */
+#screen-confirm{padding-top:8px;text-align:center}
+.rn-tick{width:54px;height:54px;border-radius:50%;background:var(--red);color:var(--white);
+  display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 22px}
+.rn-confirm-h{font-family:var(--f-head);font-size:34px;font-weight:400;margin-bottom:12px;color:var(--ink)}
+.rn-confirm-s{font-size:15px;color:var(--muted);line-height:1.7;max-width:420px;margin:0 auto 44px}
+.rn-call{background:var(--paper);border:1px solid var(--hairline);border-top:3px solid var(--red);
+  border-radius:var(--r);padding:30px 26px;text-align:left}
+.rn-call-k{font-family:var(--f-body);font-size:10.5px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.rn-call-h{font-family:var(--f-head);font-size:25px;font-weight:400;margin-bottom:12px;color:var(--ink)}
+.rn-call-b{font-size:14.5px;color:var(--ink);line-height:1.7;margin-bottom:22px}
+.rn-call .btn-primary{max-width:none}
+
+/* ── Signature ── */
+.rn-sig{width:100%;max-width:640px;text-align:center;padding:40px 20px 8px;
+  font-size:13px;color:var(--muted);line-height:1.75;border-top:1px solid var(--hairline);
+  margin-top:44px}
+.rn-sig img{width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:14px}
+.rn-sig b{color:var(--ink);font-weight:700}
+.rn-sig a{color:var(--muted)}
+
+/* ══ PHONES ══
+   Note the 16px floor on every form control. iOS Safari zooms the page when a
+   focused input is smaller than 16px and does not zoom back out on blur, so
+   every screen after the gate reads as overflowing to the right. Do not put a
+   smaller size on an input or a select here. */
+@media (max-width:430px){
+  .rn-logohead{padding:26px 0 22px}
+  .rn-logo{width:186px}
+  #screen-results{padding-top:32px}
+  #screen-quiz{padding-top:28px}
+  .rn-sub{font-size:16px;margin-bottom:32px}
+  .rn-bullets{margin-bottom:36px}
+  .rn-divider{margin-top:32px}
+  .btn-primary{padding:16px 22px}
+  .btn-secondary{padding:15px 18px}
+  .rn-framing,.rn-tease,.rn-call{padding:22px 18px}
+  .rn-framing{margin:28px 0}
+  .rn-confirm-h{font-size:29px}
+  .rn-confirm-s{margin-bottom:36px}
+  .rn-score{margin-bottom:32px}
+  .rn-score-d{font-size:22px}
+  .rn-sectitle{font-size:27px}
+  .rn-secsub{margin-bottom:26px}
+  .q{margin-bottom:26px}
+  .rn-nav{gap:10px;margin-top:28px;padding-bottom:32px}
+  .rn-rule{margin:28px 0}
+  .rn-compliance{margin-top:26px}
+  .rn-tease2{gap:10px}
+  .rn-tease2 > div{padding:16px 10px}
+}
+@media (max-width:380px){
+  .rn-wrap{padding:0 16px}
+  .rn-h1{font-size:34px}
+  .rn-confirm-h{font-size:26px}
+  .btn-primary{padding:15px 14px;font-size:15px}
+  .btn-secondary{padding:14px 12px;font-size:14px}
+  .q-opt{padding:14px}
+  .rn-tease,.rn-call{padding:20px 16px}
+  .rn-tease2{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<div id="pbwrap"><div class="rn-wrap">
+  <div class="pb-track"><div class="pb-fill" id="pb-fill"></div></div>
+  <div class="pb-label" id="pb-label">Section 1 of 8</div>
+</div></div>
+
+<main class="rn-wrap">
+
+<!-- ══ Landing ══ -->
+<section class="screen active" id="screen-landing">
+  <div class="rn-logohead">
+    <img class="rn-logo" src="https://nolanbowlin.github.io/peachtree-brand-assets/img/peachtree-planning-logo.png" alt="Peachtree Planning" width="600" height="120">
+  </div>
+  <p class="rn-eyebrow">Garrett Williamson, CFP&reg; CEPA&reg;</p>
+  <h1 class="rn-h1">What is your<br><em>retirement number</em>?</h1>
+  <p class="rn-sub">Most people are working toward a number they have never actually run. Twenty-five questions, about ten minutes, and you will have yours.</p>
+  <div class="rn-bullets">
+    <div class="rn-bullet"><i></i><span>Your READY score across the five things that decide whether you can stop</span></div>
+    <div class="rn-bullet"><i></i><span>The number you need before work becomes optional</span></div>
+    <div class="rn-bullet"><i></i><span>The gap between that number and where you are now, and what closes it</span></div>
+  </div>
+  <button class="btn-primary" id="btn-start">Find my number &rarr;</button>
+  <p class="rn-meta">About ten minutes. Free. No account numbers, no logins.</p>
+  <div class="rn-divider"></div>
+</section>
+
+<!-- ══ Quiz ══ -->
+<section class="screen" id="screen-quiz">
+  <div id="quiz-header"></div>
+  <div id="quiz-questions"></div>
+  <div class="rn-nav">
+    <button class="btn-secondary" id="btn-back">&larr; Back</button>
+    <button class="btn-primary" id="btn-next">Continue &rarr;</button>
+  </div>
+</section>
+
+<!-- ══ Results, pre-gate ══ -->
+<section class="screen" id="screen-results">
+  <div class="rn-score">
+    <p class="rn-score-k">Your READY Score</p>
+    <div><span class="rn-score-n" id="result-score">0</span><span class="rn-score-d"> / 100</span></div>
+    <div class="rn-band" id="result-band"></div>
+  </div>
+
+  <p class="rn-bk">Score breakdown</p>
+  <div id="ready-bars"></div>
+
+  <div class="rn-framing" id="results-framing"></div>
+
+  <div class="rn-tease">
+    <p class="rn-tease-k">Your retirement number</p>
+    <div class="rn-tease-v" id="tease-value">$3.4M</div>
+    <p class="rn-tease-l">The amount that has to be working for you before the paychecks can stop</p>
+  </div>
+
+  <div class="rn-tease2">
+    <div>
+      <p class="rn-tease-k">Projected shortfall</p>
+      <div class="rn-mini" id="tease-gap">$1.2M</div>
+    </div>
+    <div>
+      <p class="rn-tease-k">To close it</p>
+      <div class="rn-mini" id="tease-monthly">$3,400/mo</div>
+    </div>
+  </div>
+
+  <hr class="rn-rule">
+
+  <h2 class="rn-gate-h">Want to see your number?</h2>
+  <p class="rn-gate-s">Enter your details and I will send the full report: the number you need, what you are projected to have, the gap between them, and the moves that close it fastest from where you are standing today.</p>
+  <form class="rn-form" id="gate-form">
+    <p class="rn-hp"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+    <input type="text" id="gate-name" name="name" placeholder="Name" autocomplete="name" required>
+    <input type="email" id="gate-email" name="email" placeholder="Email" autocomplete="email" required>
+    <input type="tel" id="gate-phone" name="phone" placeholder="Phone" autocomplete="tel" required>
+    <button class="btn-primary" type="submit" id="btn-gate">Send me my number &rarr;</button>
+    <p class="rn-err" id="gate-error" role="alert" hidden></p>
+    <p class="rn-fine">No spam, unsubscribe any time. Your report arrives in a few minutes.</p>
+  </form>
+
+  <div class="rn-loading" id="gate-loading" style="display:none">
+    <div class="rn-spin"></div>
+    <p class="rn-meta">Building your report...</p>
+  </div>
+
+  <p class="rn-compliance" id="compliance-text"></p>
+</section>
+
+<!-- ══ Confirmation ══ -->
+<section class="screen" id="screen-confirm">
+  <div class="rn-logohead">
+    <img class="rn-logo" src="https://nolanbowlin.github.io/peachtree-brand-assets/img/peachtree-planning-logo.png" alt="Peachtree Planning" width="600" height="120">
+  </div>
+  <div class="rn-tick">&#10003;</div>
+  <h2 class="rn-confirm-h">Your report is on its way.</h2>
+  <p class="rn-confirm-s">Check your inbox in the next few minutes. If it is not there, look in spam.</p>
+  <div class="rn-call">
+    <p class="rn-call-k">Or skip ahead</p>
+    <h3 class="rn-call-h">Book a thirty minute number review</h3>
+    <p class="rn-call-b">Thirty minutes with Garrett. Your number, what you are actually on track for, and the two or three decisions that move it most. Whether we end up working together or not, you leave knowing where you stand.</p>
+    <a class="btn-primary" href="https://calendly.com/GARRETT-CALENDLY-SLUG" target="_blank" rel="noopener" id="btn-book">Book my review &rarr;</a>
+  </div>
+</section>
+
+</main>
+
+<div class="rn-wrap rn-sig">
+  <img src="https://nolanbowlin.github.io/peachtree-brand-assets/img/garrett-williamson-headshot.jpg" alt="Garrett Williamson" width="210" height="210">
+  <div>
+    <b>Garrett Williamson, CFP&reg;, CEPA&reg;</b><br>
+    Peachtree Planning of Tennessee<br>
+    <a href="tel:6152825702">615-282-5702</a> &middot;
+    <a href="mailto:Garrett.Williamson@PeachtreePlanning.com">Garrett.Williamson@PeachtreePlanning.com</a><br>
+    101 Westpark Drive, Suite 310, Brentwood, TN 37027
+  </div>
+</div>
+
+<script>
+/* ═══ THE RETIREMENT NUMBER ═══
+   Port of the TRADE Exit Score engine to a retirement gap model. Same shape:
+   an intake that feeds the money maths, twenty-five scored questions that feed
+   a readiness score out of 100, a results screen that shows the score for free
+   and blurs the dollar figures, and a gate that trades the figures for a name,
+   an email and a phone number.
+
+   The reason the score is given away and the number is not: a score with no
+   dollars attached is interesting but not actionable, so the visitor has
+   already had the payoff of a real result and is now one field away from the
+   thing they actually came for. That asymmetry is the whole conversion
+   mechanic and it should not be softened by revealing the number early.
+
+   THREE THINGS TO SET BEFORE THIS GOES LIVE, all marked TODO below:
+     1. WEBHOOK, currently a placeholder. Nothing is captured until it points
+        at Garrett's Make scenario or CRM endpoint.
+     2. The Calendly URL on the confirmation screen.
+     3. The compliance line in COMPLIANCE. It is written to be reasonable, not
+        to be approved. Garrett's broker dealer and OSJ have to sign off on the
+        exact wording before this runs behind paid traffic, and they will
+        almost certainly want their own required disclosure text. */
+(function(){
+'use strict';
+
+/* TODO: point this at Garrett's Make scenario or CRM webhook. */
+var WEBHOOK = 'https://hook.us2.make.com/REPLACE-WITH-GARRETT-WEBHOOK';
+
+/* The firm disclosure below is verbatim from the peachtreeplanning.com footer as
+   at 2026-08-19 and is not optional. The methodology paragraph after it is mine
+   and is the part still awaiting review.
+
+   TODO: this whole block goes through Guardian advertising review before the
+   page runs behind paid traffic. Their approvals come back with a review ID and
+   an expiry to print at the end, in the format their own footer uses,
+   "8894350.1 Exp 5.2028". Add it below when it lands. */
+var FIRM_DISCLOSURE = 'Peachtree Planning is an Agency of The Guardian Life Insurance Company of ' +
+  'America (Guardian), New York, NY. Securities products and advisory services offered through Park ' +
+  'Avenue Securities LLC (PAS), member FINRA / SIPC. OSJ: 5600 Glenridge Dr Suite 600 East, Atlanta, ' +
+  'GA 30342, Phone #404-260-1600. PAS is a wholly owned subsidiary of The Guardian Life Insurance ' +
+  'Company of America (Guardian), New York, NY. Peachtree Planning is not an affiliate or subsidiary ' +
+  'of PAS or Guardian. Garrett Williamson is a Registered Representative and Financial Advisor of Park ' +
+  'Avenue Securities LLC (PAS) and a Financial Representative of Guardian. CA Insurance License ' +
+  '#4138564. Certified Financial Planner Board of Standards Inc. owns the certification marks CFP, ' +
+  'CERTIFIED FINANCIAL PLANNER and CFP (with plaque design) in the U.S.';
+
+var COMPLIANCE = 'This is a directional estimate based on the answers you gave, not a financial plan, ' +
+  'a projection of any specific investment, or a recommendation to buy or sell anything. It assumes a 5 percent ' +
+  'average annual return above inflation on invested assets before retirement, expresses every figure in ' +
+  'today’s dollars, and draws on a sustainable withdrawal rate that varies from roughly 3.4 to 4.6 percent ' +
+  'depending on how long the money has to last. Real markets do not return an average every year, sequence of ' +
+  'returns matters enormously in the first decade of retirement, and tax treatment differs by account type and ' +
+  'by state. Your actual result will differ. Guarantees are subject to the claims paying ability of the issuing ' +
+  'company. For a plan built on your real balances, tax situation and goals, speak with a licensed professional.';
+
+/* ── Money maths inputs ──
+   Every bucket maps to its midpoint. The midpoints are deliberately a little
+   conservative at the top of each open ended band, because a number that comes
+   in slightly under what the visitor expected reads as credible while one that
+   comes in over reads as a sales tool. */
+var INCOME_MID = {'Under $75K':60000,'$75K to $125K':100000,'$125K to $200K':160000,
+  '$200K to $350K':270000,'$350K to $500K':420000,'$500K+':650000};
+var SAVED_MID = {'Under $50K':25000,'$50K to $150K':100000,'$150K to $400K':275000,
+  '$400K to $750K':575000,'$750K to $1.5M':1100000,'$1.5M to $3M':2200000,'$3M+':4000000};
+var CONTRIB_MID = {'Nothing right now':0,'Under $500 a month':3000,'$500 to $1,500 a month':12000,
+  '$1,500 to $3,000 a month':27000,'$3,000 to $5,000 a month':48000,'Over $5,000 a month':78000};
+/* What a household actually spends, as a share of gross income. Gross includes
+   income tax, payroll tax and whatever is being saved, so treating it as
+   spending overstates the need badly at the top and turns a credible number
+   into a scary one nobody believes. The share falls as income rises because
+   the effective tax rate and the savings rate both climb. This is only used
+   when the visitor skips the exact spending question at the end. */
+var SPEND_BASE = {'Under $75K':0.80,'$75K to $125K':0.75,'$125K to $200K':0.70,
+  '$200K to $350K':0.65,'$350K to $500K':0.60,'$500K+':0.55};
+/* Retirement spend as a share of what the household spends today. */
+var SPEND_PCT = {'Noticeably less, I plan to simplify':0.60,
+  'A bit less than now':0.75,'About the same as now':0.90,
+  'More, this is when I actually spend it':1.05,'I have no idea':0.85};
+var GUARANTEED_MID = {'Nothing I am counting on':0,'Under $2,000 a month':15000,
+  '$2,000 to $4,000 a month':36000,'$4,000 to $6,000 a month':60000,
+  'Over $6,000 a month':84000,'Not sure':0};
+var BIZ_MID = {'I do not own a business':0,'Under $250K':150000,'$250K to $1M':600000,
+  '$1M to $3M':1900000,'$3M to $10M':6000000,'Over $10M':13000000,
+  'I own one but have no idea what it is worth':0};
+
+var SECTIONS = [
+  { id:'intake1', title:'About you',
+    subtitle:'None of this is scored. It is what turns your score into a dollar figure.',
+    questions:[
+      {id:'in_age', text:'How old are you?', type:'select',
+       options:['Under 35','35 to 44','45 to 49','50 to 54','55 to 59','60 to 64','65 or older']},
+      {id:'in_retage', text:'At what age do you want work to become optional?',
+       helper:'The age you could stop, not the age you plan to. Plenty of people keep working well past it. What matters here is when the choice becomes yours.',
+       type:'select',
+       options:['Before 55','55 to 59','60 to 62','63 to 65','66 to 70','After 70','Never, I will always work']},
+      {id:'in_status', text:'Are you planning for one person or two?', type:'select',
+       options:['Just me','Me and a spouse or partner']},
+      {id:'in_income', text:'What is your total household income before tax?', type:'select',
+       options:['Under $75K','$75K to $125K','$125K to $200K','$200K to $350K','$350K to $500K','$500K+']},
+      {id:'in_biz', text:'Do you own a business, and roughly what is it worth?',
+       helper:'A rough number is fine. If you have never had it valued, say so and the model will leave it out rather than guess.',
+       type:'select',
+       options:['I do not own a business','Under $250K','$250K to $1M','$1M to $3M','$3M to $10M','Over $10M','I own one but have no idea what it is worth']}
+    ]},
+  { id:'intake2', title:'Your money today',
+    subtitle:'Ballpark answers are fine. Nobody is checking, and the estimate moves with them.',
+    questions:[
+      {id:'in_saved', text:'Total in retirement and investment accounts today.',
+       helper:'401(k), IRA, Roth, brokerage, HSA. Do not count your home, and do not count the business.',
+       type:'select',
+       options:['Under $50K','$50K to $150K','$150K to $400K','$400K to $750K','$750K to $1.5M','$1.5M to $3M','$3M+']},
+      {id:'in_contrib', text:'How much are you putting away each month, including any employer match?', type:'select',
+       options:['Nothing right now','Under $500 a month','$500 to $1,500 a month','$1,500 to $3,000 a month','$3,000 to $5,000 a month','Over $5,000 a month']},
+      {id:'in_spend', text:'In retirement, how will your spending compare to now?', type:'select',
+       options:['Noticeably less, I plan to simplify','A bit less than now','About the same as now','More, this is when I actually spend it','I have no idea']},
+      {id:'in_guaranteed', text:'Monthly income you expect that is not coming out of savings.',
+       helper:'Social Security, a pension, rental income, an annuity. Household total, in today’s dollars.',
+       type:'select',
+       options:['Nothing I am counting on','Under $2,000 a month','$2,000 to $4,000 a month','$4,000 to $6,000 a month','Over $6,000 a month','Not sure']},
+      {id:'in_sellbiz', text:'Is selling the business part of how you fund retirement?', type:'select',
+       options:['Yes, it is a major part of the plan','Yes, but it is a bonus rather than the plan','No','I do not own a business']}
+    ]},
+  { id:'R', letter:'R', title:'Runway', subtitle:'How much time and flexibility the plan has left.',
+    questions:[
+      {id:'R1', text:'How firm is the date you gave for stepping back?',
+       options:[{text:'It is a target I have built a plan around',score:1},{text:'A rough goal I revisit now and then',score:.67},{text:'A number I picked just now',score:.33},{text:'Honestly, I avoid thinking about it',score:0}]},
+      {id:'R2', text:'If you had to stop working three years earlier than planned, through health or a layoff, what happens?',
+       options:[{text:'It would work. Tighter, but it would work.',score:1},{text:'It would work with real changes to how we live',score:.67},{text:'We would have a serious problem',score:.33},{text:'It would not work at all',score:0}]},
+      {id:'R3', text:'How is your health, and how long do people in your family tend to live?',
+       helper:'This is not morbid, it is arithmetic. A plan that has to last thirty five years is a different plan from one that has to last twenty.',
+       options:[{text:'Good health, long lived family. Plan for a long retirement.',score:1},{text:'Good health, average family history',score:.75},{text:'A few things to manage',score:.5},{text:'Significant health concerns',score:.25}]},
+      {id:'R4', text:'Do you still have people financially dependent on you, or will you in retirement?',
+       options:[{text:'No, everyone is independent',score:1},{text:'Kids, but they will be out before I stop',score:.67},{text:'Yes, and it overlaps my retirement',score:.33},{text:'Yes, including a parent or an adult child indefinitely',score:0}]},
+      {id:'R5', text:'When did you last sit down and actually run the numbers on all of this?',
+       options:[{text:'Within the last year, with a professional',score:1},{text:'Within the last year, on my own',score:.67},{text:'A few years ago',score:.33},{text:'Never',score:0}]}
+    ]},
+  { id:'E', letter:'E', title:'Expenses', subtitle:'Whether you know what retirement actually costs.',
+    questions:[
+      {id:'E1', text:'Do you know what your household spends in a year?',
+       options:[{text:'Yes, to within a few thousand dollars',score:1},{text:'Roughly, within about ten percent',score:.67},{text:'A vague sense',score:.33},{text:'No idea',score:0}]},
+      {id:'E2', text:'Where will your mortgage stand at the date you gave?',
+       options:[{text:'Paid off, or I rent by choice with no debt',score:1},{text:'Nearly paid off',score:.67},{text:'Years left on it',score:.33},{text:'I expect to still carry a large balance',score:0}]},
+      {id:'E3', text:'Other debt: cards, car notes, personal loans, anything you signed for the business.',
+       options:[{text:'None',score:1},{text:'A car note, nothing else',score:.67},{text:'A meaningful balance I am working down',score:.33},{text:'Significant debt, including balances I have guaranteed personally',score:0}]},
+      {id:'E4', text:'If you stop before 65, health insurance is on you. What is the plan?',
+       helper:'This is the single most underestimated line in early retirement. A couple bridging a few years to Medicare can spend well into five figures a year.',
+       options:[{text:'Covered by a spouse, a retiree plan or Medicare already',score:1},{text:'I have priced the marketplace and budgeted for it',score:.67},{text:'I know it is coming, I have not priced it',score:.33},{text:'I had not thought about it',score:0}]},
+      {id:'E5', text:'Have you thought about long term care, for yourself or a parent?',
+       options:[{text:'Yes, and it is covered by insurance or set aside assets',score:1},{text:'Yes, and we would self fund it',score:.67},{text:'We have talked about it and done nothing',score:.33},{text:'No',score:0}]}
+    ]},
+  { id:'A', letter:'A', title:'Assets', subtitle:'What is actually invested and working for you.',
+    questions:[
+      {id:'A1', text:'Are you putting away at least fifteen percent of your income, counting any employer match?',
+       options:[{text:'Yes, more than fifteen percent',score:1},{text:'Right about fifteen percent',score:.75},{text:'Something, but well under fifteen',score:.4},{text:'Nothing right now',score:0}]},
+      {id:'A2', text:'How is the money split across tax treatments?',
+       helper:'Pre tax is a 401(k) or traditional IRA. Tax free is a Roth or an HSA. Taxable is a regular brokerage account. Having all three gives you control over your tax bill in retirement.',
+       options:[{text:'A real mix of pre tax, Roth and taxable',score:1},{text:'Two of the three',score:.67},{text:'Almost all in one bucket',score:.33},{text:'I do not know what is where',score:0}]},
+      {id:'A3', text:'How is it invested?',
+       options:[{text:'A deliberate allocation matched to my time horizon',score:1},{text:'Target date funds or a managed portfolio',score:.75},{text:'A collection of things I picked up over the years',score:.4},{text:'Mostly cash, or I genuinely do not know',score:.1}]},
+      {id:'A4', text:'How much cash could you get to inside a week without selling investments or borrowing?',
+       options:[{text:'Six months of expenses or more',score:1},{text:'Three to six months',score:.67},{text:'One to three months',score:.33},{text:'Less than a month',score:0}]},
+      {id:'A5', text:'If you are leaving the workforce before 65, do you have money you can reach without a penalty?',
+       options:[{text:'Yes, plenty outside retirement accounts',score:1},{text:'Some, it would cover a couple of years',score:.67},{text:'Very little, nearly everything is locked up',score:.33},{text:'I did not know that was a problem',score:0}]}
+    ]},
+  { id:'D', letter:'D', title:'Dependence', subtitle:'How much of the plan rests on one thing going right.',
+    questions:[
+      {id:'D1', text:'What share of your net worth is tied up in a single asset: a business, one property, or your employer’s stock?',
+       options:[{text:'Under a quarter',score:1},{text:'A quarter to a half',score:.67},{text:'Half to three quarters',score:.33},{text:'Nearly all of it',score:0}]},
+      {id:'D2', text:'If that asset were worth thirty percent less than you think on the day you need it, what happens to the plan?',
+       options:[{text:'Barely moves it',score:1},{text:'Sets me back a couple of years',score:.67},{text:'It would be a serious problem',score:.33},{text:'The plan does not survive it',score:0}]},
+      {id:'D3', text:'Business owners: could it be sold without you in it, and do you know what a buyer would pay?',
+       options:[{text:'Yes to both, I have had it valued',score:1},{text:'It could be sold, I do not know the number',score:.67},{text:'It depends heavily on me being there',score:.33},{text:'Not applicable, I do not own a business',score:.67}]},
+      {id:'D4', text:'If you have partners, is there a funded buy sell agreement?',
+       helper:'Funded means the money is actually there, usually through insurance, rather than an agreement that says someone will find it.',
+       options:[{text:'Yes, written and funded, reviewed recently',score:1},{text:'Written but not funded, or not reviewed in years',score:.5},{text:'Nothing in writing',score:0},{text:'Not applicable, no partners',score:.85}]},
+      {id:'D5', text:'If you died or were disabled tomorrow, would your household keep the same standard of living?',
+       options:[{text:'Yes, that is covered and I have checked recently',score:1},{text:'Mostly, there would be some adjustment',score:.67},{text:'No, it would be a real fall',score:.33},{text:'I have no idea',score:0}]}
+    ]},
+  { id:'Y', letter:'Y', title:'Yield', subtitle:'What pays you once the paychecks stop.',
+    questions:[
+      {id:'Y1', text:'Do you know what your Social Security benefit is at 62, at full retirement age, and at 70?',
+       helper:'The gap between claiming at 62 and at 70 is roughly seventy seven percent more per month for life. For a married couple it is often the largest single decision in the plan.',
+       options:[{text:'Yes, I have pulled my statement and compared them',score:1},{text:'I have a rough idea',score:.5},{text:'No',score:0}]},
+      {id:'Y2', text:'How many separate sources will be paying you in retirement?',
+       options:[{text:'Four or more',score:1},{text:'Three',score:.75},{text:'Two',score:.5},{text:'One',score:.2}]},
+      {id:'Y3', text:'How much of your essential spending, housing, food, insurance, is covered by income you cannot outlive?',
+       options:[{text:'All of it',score:1},{text:'Most of it',score:.75},{text:'Some of it',score:.4},{text:'None of it, everything comes out of savings',score:.1}]},
+      {id:'Y4', text:'Do you have a plan for which accounts you draw down first, and in what order?',
+       options:[{text:'Yes, a written withdrawal sequence',score:1},{text:'A general idea',score:.5},{text:'No',score:0}]},
+      {id:'Y5', text:'Have you looked at what your tax bill actually becomes in retirement, including required minimum distributions?',
+       options:[{text:'Yes, and we have planned around it',score:1},{text:'I know it is coming',score:.5},{text:'No',score:0}]}
+    ]},
+  { id:'exact', title:'One more thing, optional',
+    subtitle:'If you know your real numbers and want a sharper figure, put them in. Leave them blank and the buckets you picked will be used.',
+    questions:[
+      {id:'ex_spend', text:'What your household actually spends in a year, today', type:'dollar', optional:true, placeholder:'120000'},
+      {id:'ex_saved', text:'Total invested and retirement assets today', type:'dollar', optional:true, placeholder:'650000'}
+    ]}
+];
+
+var currentSection = 0, answers = {};
+var $ = function(id){ return document.getElementById(id); };
+
+/* ── Scoring ── */
+function computeScores(){
+  var out = {}, letters = ['R','E','A','D','Y'], total = 0;
+  letters.forEach(function(L){
+    var sec = SECTIONS.filter(function(s){ return s.id === L; })[0];
+    var sum = 0, n = 0;
+    sec.questions.forEach(function(q){
+      var v = answers[q.id];
+      if (v !== undefined && v !== null && v !== '') { sum += parseFloat(v); n++; }
+    });
+    out[L] = n ? (sum / n) * 20 : 0;
+    total += out[L];
+  });
+  out.total = total;
+  return out;
+}
+
+/* ── The money model ──
+   Everything is in today's dollars. Assets grow at a real return, which is the
+   return above inflation, and spending is not inflated. That is one assumption
+   instead of two and it is the version a client can follow when Garrett walks
+   them through it on a call.
+
+   REAL_RETURN is deliberately 5 percent rather than the 7 percent a nominal
+   equity assumption would give. A mixed portfolio held by someone within
+   fifteen years of retiring is not all equities, and a model that flatters the
+   projection makes the gap look smaller, which is the opposite of useful. */
+var REAL_RETURN = 0.05;
+
+var AGE_MID = {'Under 35':32,'35 to 44':40,'45 to 49':47,'50 to 54':52,
+  '55 to 59':57,'60 to 64':62,'65 or older':66};
+var RETAGE_MID = {'Before 55':53,'55 to 59':57,'60 to 62':61,'63 to 65':64,
+  '66 to 70':67,'After 70':72,'Never, I will always work':70};
+
+/* Sustainable withdrawal rate by how long the money has to last. Retiring at
+   52 means funding perhaps forty years, and four percent is too aggressive for
+   that. Retiring at 70 means the opposite. */
+function withdrawalRate(retAge){
+  if (retAge < 55) return 0.034;
+  if (retAge < 60) return 0.037;
+  if (retAge < 65) return 0.040;
+  if (retAge < 70) return 0.043;
+  return 0.046;
+}
+
+function num(v){ var n = parseFloat(v); return isFinite(n) && n > 0 ? n : 0; }
+
+function computeMoney(){
+  var age = AGE_MID[answers['in_age']] || 50;
+  var retAge = RETAGE_MID[answers['in_retage']] || 65;
+  var years = Math.max(0, retAge - age);
+
+  var income = INCOME_MID[answers['in_income']] || 100000;
+  var spendPct = SPEND_PCT[answers['in_spend']] !== undefined ? SPEND_PCT[answers['in_spend']] : 0.85;
+
+  /* Spending in retirement. If the visitor gave an exact figure it is taken as
+     what the household spends today and used directly. Otherwise spending is
+     backed out of gross income through SPEND_BASE first, because income minus
+     tax minus savings is a very different number from income. The exact answer
+     is materially better than the estimate, which is why it is asked for last,
+     where skipping it costs nothing. */
+  var spendToday = num(answers['ex_spend']);
+  var base = SPEND_BASE[answers['in_income']] !== undefined ? SPEND_BASE[answers['in_income']] : 0.70;
+  var annualSpend = spendToday > 0 ? spendToday * spendPct : income * base * spendPct;
+
+  var guaranteed = GUARANTEED_MID[answers['in_guaranteed']] || 0;
+  var needFromAssets = Math.max(0, annualSpend - guaranteed);
+
+  var wr = withdrawalRate(retAge);
+  var target = needFromAssets / wr;
+
+  var saved = num(answers['ex_saved']) || SAVED_MID[answers['in_saved']] || 0;
+  var contrib = CONTRIB_MID[answers['in_contrib']] !== undefined ? CONTRIB_MID[answers['in_contrib']] : 0;
+
+  var growth = Math.pow(1 + REAL_RETURN, years);
+  var fvSaved = saved * growth;
+  var fvContrib = years > 0 ? contrib * ((growth - 1) / REAL_RETURN) : 0;
+
+  /* Business proceeds. Only counted when the owner says the sale is part of
+     how retirement gets funded, and only at seventy percent of the number they
+     gave, which is a rough allowance for tax, fees and the gap between what an
+     owner believes the business is worth and what a buyer pays. If they do not
+     know what it is worth, it contributes nothing rather than a guess, and the
+     report says so. */
+  var bizVal = BIZ_MID[answers['in_biz']] || 0;
+  var sell = answers['in_sellbiz'];
+  var bizFactor = sell === 'Yes, it is a major part of the plan' ? 0.70
+                : sell === 'Yes, but it is a bonus rather than the plan' ? 0.55 : 0;
+  var bizNet = Math.round(bizVal * bizFactor);
+
+  var projected = fvSaved + fvContrib + bizNet;
+  var gap = target - projected;
+
+  /* Additional monthly saving that closes the gap over the remaining runway. */
+  var monthly = 0;
+  if (gap > 0) {
+    monthly = years > 0
+      ? (gap / ((growth - 1) / REAL_RETURN)) / 12
+      : gap;
+  }
+
+  return { age:age, retAge:retAge, years:years, annualSpend:Math.round(annualSpend),
+           guaranteed:guaranteed, needFromAssets:Math.round(needFromAssets),
+           withdrawalRate:wr, target:Math.round(target), saved:saved,
+           contribAnnual:contrib, bizNet:bizNet, projected:Math.round(projected),
+           gap:Math.round(gap), monthlyToClose:Math.round(monthly),
+           bizUnknown: answers['in_biz'] === 'I own one but have no idea what it is worth' };
+}
+
+function money(n){
+  n = Math.abs(n);
+  if (n >= 1000000) {
+    var r = Math.round(n / 100000) * 100000;
+    return '$' + (r / 1000000).toFixed(r % 1000000 === 0 ? 1 : 2) + 'M';
+  }
+  return '$' + (Math.round(n / 5000) * 5000).toLocaleString();
+}
+function money0(n){ return '$' + Math.round(Math.abs(n)).toLocaleString(); }
+
+function getBand(s){
+  if (s >= 86) return {i:3, label:'On track. The question now is optimisation, not survival.'};
+  if (s >= 66) return {i:2, label:'Solid footing. A few specific decisions would lock it in.'};
+  if (s >= 41) return {i:1, label:'Workable, with real gaps. Time is still on your side if you move.'};
+  return {i:0, label:'Significant gaps. This is fixable, and it gets harder every year you wait.'};
+}
+
+var FRAMING = [
+ 'A score in this range almost never means someone earns too little. It usually means nobody has ever put the whole picture on one page, so decisions get made one at a time and none of them are pulling in the same direction. The good news is that scores here move faster than any other, because the first few fixes are the big ones. Your full report sets out what they are in your case.',
+ 'The pieces are there and the plan is not built yet. In this range there are usually two or three specific decisions, often about the order things get drawn down, what is covered by guaranteed income, and how much rides on a single asset, that change the number more than another year of saving would. Your full report names them.',
+ 'This is better shape than most people ever get to. In this range the remaining upside is rarely about saving harder. It comes from tax positioning, when Social Security gets claimed, and making sure nothing in the plan depends on one thing going right. Your full report sets out which of those apply to you.',
+ 'This is rare. A plan scoring here is already funded and already diversified, and the work left is about efficiency: what the tax bill looks like across retirement, what gets left behind and how, and whether anything is being paid for that is no longer needed. Your full report confirms what is left.'
+];
+
+/* ── Rendering ── */
+function esc(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function renderSection(){
+  var sec = SECTIONS[currentSection], h = '';
+  h += '<div class="rn-sectag">' + (sec.letter ? '<b>' + esc(sec.letter) + '</b>' : '') + '<span>' + esc(sec.title) + '</span></div>';
+  h += '<h2 class="rn-sectitle">' + esc(sec.title) + '</h2>';
+  h += '<p class="rn-secsub">' + esc(sec.subtitle) + '</p>';
+  $('quiz-header').innerHTML = h;
+
+  var q = '';
+  sec.questions.forEach(function(item){
+    q += '<div class="q" id="qw-' + item.id + '">';
+    q += '<p class="q-text">' + esc(item.text) + '</p>';
+    if (item.helper) q += '<p class="q-helper">' + esc(item.helper) + '</p>';
+    if (item.type === 'select') {
+      q += '<div class="q-sel-wrap"><select class="q-sel" data-qid="' + item.id + '">';
+      q += '<option value="">Select an answer...</option>';
+      item.options.forEach(function(o){
+        q += '<option value="' + esc(o) + '"' + (answers[item.id] === o ? ' selected' : '') + '>' + esc(o) + '</option>';
+      });
+      q += '</select></div>';
+    } else if (item.type === 'dollar') {
+      q += '<div class="q-num-wrap"><span>$</span><input type="number" class="q-num" data-qid="' + item.id +
+           '" placeholder="' + esc(item.placeholder || '') + '" value="' + esc(answers[item.id] || '') + '"></div>';
+      q += '<p class="q-optional">Optional.</p>';
+    } else {
+      q += '<div class="q-opts">';
+      item.options.forEach(function(o){
+        q += '<div class="q-opt' + (answers[item.id] == o.score ? ' sel' : '') + '" data-qid="' + item.id +
+             '" data-score="' + o.score + '"><div class="q-dot"></div><span class="q-lab">' + esc(o.text) + '</span></div>';
+      });
+      q += '</div>';
+    }
+    q += '</div>';
+  });
+  $('quiz-questions').innerHTML = q;
+
+  $('btn-back').textContent = currentSection > 0 ? '← Back' : '← Start over';
+  $('btn-next').textContent = (currentSection === SECTIONS.length - 1) ? 'See my score →' : 'Continue →';
+
+  var pct = ((currentSection + 1) / SECTIONS.length) * 100;
+  $('pb-fill').style.width = pct + '%';
+  $('pb-label').textContent = 'Section ' + (currentSection + 1) + ' of ' + SECTIONS.length;
+}
+
+function show(id){
+  var all = document.querySelectorAll('.screen');
+  for (var i = 0; i < all.length; i++) all[i].classList.remove('active');
+  $(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function validate(){
+  var sec = SECTIONS[currentSection], ok = true, first = null;
+  sec.questions.forEach(function(item){
+    if (item.optional) return;
+    var v = answers[item.id];
+    if (v === undefined || v === null || v === '') {
+      var wrap = $('qw-' + item.id);
+      if (wrap) {
+        var opts = wrap.querySelectorAll('.q-opt');
+        if (opts.length) { for (var i = 0; i < opts.length; i++) opts[i].classList.add('err'); }
+        else {
+          var f = wrap.querySelector('select,input');
+          if (f) f.style.borderColor = 'var(--red)';
+        }
+        if (!first) first = wrap;
+      }
+      ok = false;
+    }
+  });
+  if (first) first.scrollIntoView({ behavior:'smooth', block:'center' });
+  return ok;
+}
+
+function showResults(){
+  var scores = computeScores(), rounded = Math.round(scores.total), band = getBand(rounded);
+  $('result-score').textContent = rounded;
+  /* The band class deliberately does NOT go on the number. It used to, and
+     because the pill carries a background and a border, the number ended up
+     sitting in a tinted rectangle. The number is always ink. */
+  var bl = $('result-band');
+  bl.textContent = band.label;
+  bl.className = 'rn-band band-' + band.i;
+
+  var rows = [
+    {id:'R', label:'Runway',     sub:'How much time and flexibility is left'},
+    {id:'E', label:'Expenses',   sub:'Whether you know what it actually costs'},
+    {id:'A', label:'Assets',     sub:'What is invested and working for you'},
+    {id:'D', label:'Dependence', sub:'How much rests on one thing going right'},
+    {id:'Y', label:'Yield',      sub:'What pays you when the paychecks stop'}
+  ];
+  var h = '';
+  rows.forEach(function(r){
+    var s = Math.round(scores[r.id] * 10) / 10;
+    h += '<div class="rn-row"><div class="rn-row-h"><div>' +
+         '<div class="rn-row-l">' + r.id + ' &middot; ' + r.label + '</div>' +
+         '<div class="rn-row-s">' + r.sub + '</div></div>' +
+         '<div class="rn-row-v">' + s + '/20</div></div>' +
+         '<div class="rn-bar"><i data-pct="' + ((s / 20) * 100) + '"></i></div></div>';
+  });
+  $('ready-bars').innerHTML = h;
+  $('results-framing').textContent = FRAMING[band.i];
+
+  var m = computeMoney();
+  $('tease-value').textContent = money(m.target);
+  /* A surplus is still worth blurring. Someone who is ahead wants the number
+     confirmed as much as someone who is behind wants to know the damage, and
+     the label changes so the reveal is not a bait. */
+  if (m.gap > 0) {
+    $('tease-gap').textContent = money(m.gap);
+    $('tease-monthly').textContent = money0(m.monthlyToClose) + '/mo';
+    $('tease-gap').previousElementSibling.textContent = 'Projected shortfall';
+    $('tease-monthly').previousElementSibling.textContent = 'To close it';
+  } else {
+    $('tease-gap').textContent = money(-m.gap);
+    $('tease-monthly').textContent = money(m.projected);
+    $('tease-gap').previousElementSibling.textContent = 'Projected surplus';
+    $('tease-monthly').previousElementSibling.textContent = 'On track for';
+  }
+
+  $('compliance-text').textContent = COMPLIANCE + ' ' + FIRM_DISCLOSURE;
+
+  show('screen-results');
+  setTimeout(function(){
+    var bars = document.querySelectorAll('.rn-bar i');
+    for (var i = 0; i < bars.length; i++) bars[i].style.width = bars[i].getAttribute('data-pct') + '%';
+  }, 100);
+}
+
+/* ── Gate ── */
+function submitGate(){
+  var name = $('gate-name').value.trim(),
+      email = $('gate-email').value.trim(),
+      phone = $('gate-phone').value.trim(),
+      err = $('gate-error'), form = $('gate-form');
+
+  function fail(msg){ err.textContent = msg; err.hidden = false; }
+
+  if (!name) { fail('Please enter your name.'); $('gate-name').focus(); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { fail('Please enter a valid email address.'); $('gate-email').focus(); return; }
+  if (phone.replace(/\D/g,'').length < 10) { fail('Please enter a phone number we can reach you on.'); $('gate-phone').focus(); return; }
+
+  /* Honeypot: invisible to people, so anything in it is a bot. Behave as
+     though it worked rather than explaining the tell. */
+  if (form.elements['company-website'] && form.elements['company-website'].value) {
+    show('screen-confirm'); $('pbwrap').classList.remove('visible'); return;
+  }
+
+  err.hidden = true;
+  form.style.display = 'none';
+  $('gate-loading').style.display = 'block';
+
+  var scores = computeScores(), m = computeMoney();
+  var payload = {
+    name:name, email:email, phone:phone || null,
+    answers:answers,
+    scores:{ R:Math.round(scores.R*10)/10, E:Math.round(scores.E*10)/10, A:Math.round(scores.A*10)/10,
+             D:Math.round(scores.D*10)/10, Y:Math.round(scores.Y*10)/10,
+             total:Math.round(scores.total*10)/10 },
+    band: getBand(Math.round(scores.total)).label,
+    number:{ target:m.target, target_formatted:money(m.target),
+             projected:m.projected, projected_formatted:money(m.projected),
+             gap:m.gap, gap_formatted:money(m.gap),
+             surplus: m.gap <= 0,
+             monthly_to_close:m.monthlyToClose,
+             monthly_to_close_formatted:money0(m.monthlyToClose),
+             annual_spend_in_retirement:m.annualSpend,
+             guaranteed_income:m.guaranteed,
+             need_from_assets:m.needFromAssets,
+             withdrawal_rate:m.withdrawalRate,
+             years_to_retirement:m.years,
+             business_proceeds_counted:m.bizNet,
+             business_value_unknown:m.bizUnknown },
+    intake:{ age_band:answers['in_age'], target_retirement:answers['in_retage'],
+             household:answers['in_status'], income:answers['in_income'],
+             business_value:answers['in_biz'], selling_business:answers['in_sellbiz'],
+             saved:answers['in_saved'], contributing:answers['in_contrib'],
+             spend_expectation:answers['in_spend'], guaranteed_income:answers['in_guaranteed'],
+             exact_annual_spend:answers['ex_spend'] || null,
+             exact_saved:answers['ex_saved'] || null },
+    submitted_at:new Date().toISOString(),
+    lead_source:'Retirement Number',
+    advisor:'Garrett Williamson'
+  };
+
+  /* The confirmation shows either way. The visitor has already seen their
+     score, and the report is what was promised, so blocking the confirmation
+     would punish them for an outage they cannot see. The catch is deliberate. */
+  fetch(WEBHOOK, {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  }).catch(function(e){ console.warn('Retirement Number submit failed:', e); })
+    .then(function(){
+      if (typeof window.firePixelEvent === 'function') window.firePixelEvent('Lead', {content_name:'Retirement Number Gate'});
+      show('screen-confirm');
+      $('pbwrap').classList.remove('visible');
+    });
+}
+
+/* ── Events ── */
+document.addEventListener('click', function(e){
+  var t = e.target;
+  if (t.closest('#btn-start')) {
+    e.preventDefault();
+    if (typeof window.firePixelEvent === 'function') window.firePixelEvent('ViewContent', {content_name:'Retirement Number Quiz'});
+    show('screen-quiz');
+    $('pbwrap').classList.add('visible');
+    currentSection = 0;
+    renderSection();
+    return;
+  }
+  if (t.closest('#btn-back')) {
+    e.preventDefault();
+    if (currentSection > 0) { currentSection--; renderSection(); window.scrollTo(0,0); }
+    else { show('screen-landing'); $('pbwrap').classList.remove('visible'); }
+    return;
+  }
+  if (t.closest('#btn-next')) {
+    e.preventDefault();
+    if (!validate()) return;
+    if (currentSection < SECTIONS.length - 1) { currentSection++; renderSection(); window.scrollTo(0,0); }
+    else showResults();
+    return;
+  }
+  if (t.closest('#btn-book')) {
+    if (typeof window.firePixelEvent === 'function') window.firePixelEvent('Schedule', {content_name:'Number Review Call'});
+    return;
+  }
+  var opt = t.closest('.q-opt');
+  if (opt) {
+    var qid = opt.getAttribute('data-qid');
+    answers[qid] = parseFloat(opt.getAttribute('data-score'));
+    var sibs = opt.parentElement.querySelectorAll('.q-opt');
+    for (var i = 0; i < sibs.length; i++) { sibs[i].classList.remove('sel'); sibs[i].classList.remove('err'); }
+    opt.classList.add('sel');
+  }
+});
+
+document.addEventListener('change', function(e){
+  var el = e.target, qid = el.getAttribute && el.getAttribute('data-qid');
+  if (!qid) return;
+  answers[qid] = el.value;
+  el.style.borderColor = '';
+});
+
+document.addEventListener('submit', function(e){
+  if (e.target.id === 'gate-form') { e.preventDefault(); submitGate(); }
+});
+})();
+</script>
+</body>
+</html>

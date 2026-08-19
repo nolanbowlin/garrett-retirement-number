@@ -1,0 +1,115 @@
+{
+  "_comment": "Sample values used to generate the -preview.html files from the -template.html files. Run build-previews.js after editing either. The numbers in emailReport are not invented: they are the real output of the model in retirement-number.html for the persona described in _persona, so the preview reconciles if anyone checks the arithmetic.",
+
+  "_persona": "Dale, 52, owns a mechanical contracting business outside Nashville. Household income about $270K. Wants work optional at 61. Around $575K in retirement accounts, saving about $2,250 a month. Business worth roughly $1.9M and selling it is a major part of the plan. Expects about $3,000 a month of Social Security between him and his wife. Scored 66 on the READY questions.",
+
+  "emailReport": {
+    "first_name": "Dale",
+
+    "scores.total": "66",
+    "band_label": "Solid footing. A few specific decisions would lock it in.",
+    "band_color": "#2E7D5B",
+
+    "scores.R": "13.7",
+    "scores.E": "13.4",
+    "scores.A": "14",
+    "scores.D": "12.7",
+    "scores.Y": "12",
+    "pct.R": "68.5",
+    "pct.E": "67",
+    "pct.A": "70",
+    "pct.D": "63.5",
+    "pct.Y": "60",
+
+    "band_framing": "This is better shape than most people ever get to, and the remaining upside is rarely about saving harder. In this range it comes from tax positioning, from when Social Security gets claimed, and from making sure nothing in the plan depends on a single thing going right. Two of those apply to you, and they are below.",
+
+    "number.target_formatted": "$3.0M",
+    "number.projected_formatted": "$2.5M",
+    "number.gap_formatted": "$530,000",
+    "number.monthly_to_close_formatted": "$3,998",
+    "number.retirement_age": "61",
+    "number.years_to_retirement": "9",
+    "number.need_from_assets_formatted": "$122,000",
+    "number.guaranteed_income_formatted": "$36,000",
+    "number.withdrawal_rate_formatted": "4.0 percent",
+
+    "gap_label": "Projected shortfall",
+    "gap_color": "#D2232A",
+
+    "weak_1.title": "Yield, 12 out of 20. What pays you when the paychecks stop.",
+    "weak_1.body": "Almost everything in your plan comes out of savings. You have not compared your Social Security benefit at 62, at full retirement age and at 70, and there is no written order for which accounts get drawn down first. The gap between claiming at 62 and at 70 is roughly seventy seven percent more per month for life, and for a married couple the claiming decision is often worth more than another five years of saving. It costs nothing to fix and it is the cheapest ground on the board.",
+    "weak_2.title": "Dependence, 12.7 out of 20. How much rests on one thing going right.",
+    "weak_2.body": "The business is the single largest asset in the plan and the plan currently assumes it sells for what you think it is worth. If it came in thirty percent light on the day you needed it, the shortfall roughly doubles. Two things change that: knowing what a buyer would actually pay, which means having it valued rather than estimated, and making sure it can run without you, because a business that depends on the owner sells for less or does not sell at all.",
+
+    "business_note": "Your business was counted at $1,330,000, which is seventy percent of the $1.9M you estimated. The discount covers tax on the sale, transaction fees, and the gap that usually sits between what an owner believes the business is worth and what a buyer pays. If you have had a formal valuation, send it over and we will run this again on the real number.",
+
+    "booking_url": "https://calendly.com/GARRETT-CALENDLY-SLUG",
+    "source_url": "peachtreeplanning.com",
+    "unsubscribe_url": "#unsubscribe",
+    "review_id": "PENDING GUARDIAN REVIEW. Do not send until the review ID and expiry are printed here."
+  },
+
+  "newsletterMonthly": {
+    "month": "September 2026",
+    "preheader": "If you have been meaning to set up a retirement plan for the business, the door on one of them closes 1 October.",
+
+    "contact.first_name": "Dale",
+
+    "intro": "September is the month the year stops being theoretical. Most of the planning conversations I have had in the last two weeks have been with owners who assumed they had until April to make a decision about a retirement plan for their business. For one of the better options, they do not. Here is the timing, and what it is worth.",
+
+    "topic.headline": "The retirement plan deadline most owners miss by three weeks",
+    "topic.body_1": "If you want a safe harbor 401(k) in place for this year, a new plan generally has to be up and running by 1 October. It needs at least three months of the plan year to count, which is why the date lands where it does rather than at year end. Miss it and the earliest you are looking at is next year, which is a full twelve months of contributions and deductions you do not get back.",
+    "topic.body_2": "The reason owners care about safe harbor specifically is that it sidesteps the annual nondiscrimination testing that stops so many owner heavy businesses from contributing what they want to. You commit to a set employer contribution for your people, and in exchange you and your key employees can max out without the test clawing it back. If 1 October has already passed you by, a SEP-IRA can still be established as late as your extended filing deadline, though it is a blunter instrument and every eligible employee gets the same percentage you take.",
+    "topic.takeaway": "If you have more than a handful of employees and you have been putting this off, the call to have this week is with your CPA about which plan fits, not about whether to bother. If it is just you, or you and a spouse, the deadline pressure is lower and the options are wider. Either way the answer is easier before 1 October than after it.",
+
+    "calendar_note": "Also worth having on the calendar this quarter: extended individual returns are due 15 October, Medicare open enrollment runs 15 October to 7 December, and anything that has to happen for the 2026 tax year has to happen by 31 December. December is not the month to start any of it.",
+
+    "cta.headline": "Not sure which plan fits the business?",
+    "cta.body": "Thirty minutes is usually enough to narrow it to one, and to know what it would cost you in employer contributions before you commit to anything.",
+    "cta.button": "Book thirty minutes",
+
+    "booking_url": "https://calendly.com/GARRETT-CALENDLY-SLUG",
+    "unsubscribe_url": "#unsubscribe",
+    "review_id": "PENDING GUARDIAN REVIEW. Do not send until the review ID and expiry are printed here."
+  },
+
+  "newsletterQuarterly": {
+    "quarter": "Q4 2026",
+    "preheader": "Some financial decisions can be fixed in January. These cannot.",
+
+    "feature.title": "What 31 December actually closes",
+    "feature.standfirst": "Most of the financial year can be tidied up after the fact. A short list of things cannot, and they all expire on the same night.",
+
+    "contact.first_name": "Dale",
+
+    "intro": "There is a particular kind of call I get in the second week of January, and it is always about something that could have been handled in November. The tax year is unusual in that most of it stays open for a while: you can still fund an IRA, you can still file, you can still amend. But a handful of decisions close hard at midnight on 31 December, and no amount of goodwill from your CPA reopens them. This is the quarter to deal with those.",
+
+    "feature.headline": "The difference between a deadline and a door",
+    "feature.body_1": "A deadline is a date you would rather not miss. A door is a date after which the thing is simply no longer available. Required minimum distributions are a door. Qualified charitable distributions are a door. The annual gift tax exclusion is a door: give nothing to your kids this year and this year's exclusion does not roll into next year, it evaporates. Most flexible spending account balances are a door too, and that one catches people every single year.",
+    "feature.body_2": "The reason this matters more for business owners than for most people is that your income is lumpier and less predictable. A strong year is exactly when the charitable strategies, the retirement plan contributions and the gifting decisions are worth the most, and a strong year is also when you are least likely to have the spare attention to make them. By the time the books are closed and you know what kind of year it was, some of the levers have already gone.",
+    "feature.body_3": "The fix is not complicated, it is just early. Somewhere between the middle of November and the first week of December, you want a rough read on where the year landed and a short list of the decisions that expire. That is a one hour conversation, not a project, and it is worth more than almost anything else done in the fourth quarter.",
+    "feature.takeaway": "Put an hour in the diary for the second half of November while there is still room to act on what it turns up. If you wait until the week between Christmas and New Year, which is when most people think about this, the useful half of the list has already closed.",
+
+    "deadline_1.date": "15 October",
+    "deadline_1.what": "Extended individual returns due. Also the opening of Medicare enrollment, which runs through 7 December.",
+    "deadline_2.date": "7 December",
+    "deadline_2.what": "Medicare open enrollment closes. Plan changes made now take effect 1 January, and the next chance is a year away.",
+    "deadline_3.date": "31 December",
+    "deadline_3.what": "Required minimum distributions, qualified charitable distributions, this year's gift tax exclusion, most FSA balances, and anything that has to hit the 2026 tax year.",
+
+    "market.body_1": "The year has been an uneven one across asset classes, and the spread between the strongest and weakest parts of a diversified portfolio has been wider than usual. That is worth noticing for one practical reason rather than as commentary: portfolios that started the year at a target allocation are unlikely to still be sitting at it, and drift of that kind tends to raise risk quietly rather than obviously.",
+    "market.body_2": "Nothing about that calls for a prediction, and I am not going to offer one. It is simply a good argument for looking at the allocation you actually hold today against the one you chose, and doing it while there is still time to act inside this tax year if rebalancing turns out to have tax consequences worth managing.",
+
+    "story.headline": "The owner who found out in diligence",
+    "story.body": "An owner I worked with this year had built something genuinely good over about two decades, and had roughly eighty percent of his net worth inside it. He had never had it formally valued. He had a number in his head, and the number in his head was the number the whole retirement plan quietly rested on. When a buyer finally ran diligence, the gap between his figure and theirs was large enough to move his retirement date by several years, and most of the gap came down to how much of the business ran through him personally. None of that was a surprise to anyone who looked at it from the outside. It was a complete surprise to him, because nobody had ever been asked to look. If a single asset is carrying most of your plan, the most valuable thing you can do is find out what it is really worth while you still have years to do something about the answer.",
+
+    "cta.headline": "Book the November hour",
+    "cta.body": "Thirty minutes to walk the list of what closes on 31 December and decide what is worth acting on. If nothing on it applies to you, that is a useful answer too and it takes half an hour to get.",
+    "cta.button": "Book thirty minutes",
+
+    "booking_url": "https://calendly.com/GARRETT-CALENDLY-SLUG",
+    "tool_url": "https://RETIREMENT-NUMBER-URL",
+    "unsubscribe_url": "#unsubscribe",
+    "review_id": "PENDING GUARDIAN REVIEW. Do not send until the review ID and expiry are printed here."
+  }
+}

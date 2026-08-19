@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Peachtree Template Suite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Mulish:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#D2232A; --ink:#111111; --slate:#394249;
+  --white:#FFFFFF; --paper:#F7F6F4; --hairline:#E4E2DF;
+  --body:#3A3A3A; --muted:#6B6B6B; --r:10px;
+  --head:'Tinos','Times New Roman',Times,serif;
+  --sans:'Mulish',Arial,Helvetica,sans-serif;
+  --mono:ui-monospace,Consolas,'SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--body);font:16px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:0 28px}
+
+header .band{background:var(--white);padding:26px 0;border-bottom:3px solid var(--red)}
+header .band img{height:52px;display:block}
+header .title{background:var(--white);padding:52px 0 46px;border-bottom:1px solid var(--hairline)}
+h1{font:400 clamp(2.1rem,5.2vw,3.2rem)/1.1 var(--head);color:var(--ink);letter-spacing:-.01em}
+h1 em{font-style:italic;color:var(--red)}
+.sub{color:var(--muted);margin-top:16px;max-width:660px;font-size:16.5px}
+
+section{padding:52px 0;border-bottom:1px solid var(--hairline)}
+section:last-of-type{border-bottom:0}
+.label{display:inline-flex;align-items:center;gap:9px;font:700 10.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.label::before{content:"";width:20px;height:2px;background:var(--red);flex:none}
+h2{font:400 29px/1.2 var(--head);color:var(--ink);margin-bottom:12px}
+p{margin-bottom:14px;max-width:78ch}
+code{font:12.5px/1.5 var(--mono);background:var(--white);border:1px solid var(--hairline);padding:2px 6px;border-radius:4px;color:var(--ink);overflow-wrap:anywhere}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:24px}
+.card{background:var(--white);border:1px solid var(--hairline);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.card .top{padding:22px 22px 18px;flex:1}
+.card .kind{font:700 10px/1 var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.card h3{font:400 21px/1.25 var(--head);color:var(--ink);margin-bottom:10px}
+.card p{font-size:14px;line-height:1.65;color:var(--body);margin:0}
+.card .meta{font:500 11.5px/1.7 var(--mono);color:var(--muted);padding:0 22px 16px}
+.card .links{display:flex;border-top:1px solid var(--hairline)}
+.card .links a{flex:1;text-align:center;padding:14px 10px;text-decoration:none;font:700 13px/1 var(--sans);color:var(--ink);transition:background .15s}
+.card .links a:hover{background:var(--paper)}
+.card .links a+a{border-left:1px solid var(--hairline)}
+.card .links a.primary{background:var(--red);color:#fff}
+.card .links a.primary:hover{background:#B01D23}
+
+.flow{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0;align-items:stretch}
+.flow .step{flex:1;min-width:190px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--r);padding:18px}
+.flow .n{font:400 26px/1 var(--head);color:var(--red);margin-bottom:8px}
+.flow .t{font:700 13.5px/1.4 var(--sans);color:var(--ink);margin-bottom:6px}
+.flow .d{font-size:13px;line-height:1.6;color:var(--muted)}
+
+.callout{background:var(--white);border:1px solid var(--hairline);border-left:4px solid var(--red);
+  border-radius:0 var(--r) var(--r) 0;padding:20px 22px;margin:18px 0}
+.callout p:last-child{margin-bottom:0}
+
+table{width:100%;border-collapse:collapse;margin:18px 0;background:var(--white);font-size:14px;border:1px solid var(--hairline);border-radius:var(--r);overflow:hidden}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--hairline);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{background:var(--slate);color:#fff;font:700 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase}
+
+footer{background:var(--ink);color:#9A9A9A;padding:40px 0;font-size:13px}
+footer strong{color:#fff}
+footer p{max-width:74ch}
+@media(max-width:600px){section{padding:36px 0}table{display:block;overflow-x:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="band"><div class="wrap">
+    <img src="https://nolanbowlin.github.io/peachtree-brand-assets/img/peachtree-planning-logo.png" alt="Peachtree Planning">
+  </div></div>
+  <div class="title"><div class="wrap">
+    <h1>Email <em>Template Suite</em></h1>
+    <div class="sub">Everything Garrett sends, in one place. Each template exists twice: a version with merge tokens for the send platform, and a filled version so the layout and tone can be read before anything goes out.</div>
+  </div></div>
+</header>
+
+<section><div class="wrap">
+  <div class="label">Start here</div>
+  <h2>How the two versions work</h2>
+  <p>Open a preview to see what a recipient sees. Open a template only if you are wiring it into a sending tool. The preview is generated from the template, so they cannot disagree.</p>
+  <div class="flow">
+    <div class="step"><div class="n">1</div><div class="t">Edit the template</div><div class="d">Change layout, structure or the fixed copy. Leave the <code>{{tokens}}</code> alone.</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Edit the data</div><div class="d">Change the sample content in <code>preview-data.json</code>.</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Rebuild</div><div class="d">Run <code>node build-previews.js</code> from this folder.</div></div>
+    <div class="step"><div class="n">4</div><div class="t">Review</div><div class="d">Open the preview. It fails the build rather than shipping a visible token.</div></div>
+  </div>
+  <div class="callout">
+    <p><strong>Never edit a preview directly.</strong> It is a build artefact and anything typed into it is gone on the next run. Every preview also carries a banner marking it as not approved for sending. Take that banner off deliberately, not by accident.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="label">Fulfilment</div>
+  <h2>The report</h2>
+  <p>Sent automatically when somebody completes the retirement number tool and hands over their details. This is the thing that was promised in exchange for the email address, so it has to arrive quickly and it has to be worth the trade.</p>
+  <div class="cards">
+    <div class="card">
+      <div class="top">
+        <div class="kind">Triggered</div>
+        <h3>Retirement number report</h3>
+        <p>The number, what they are on track for, the gap between the two, and the two categories where the plan is thinnest. Ends on a booking call to action.</p>
+      </div>
+      <div class="meta">35 merge tokens &middot; 28KB &middot; report/</div>
+      <div class="links">
+        <a class="primary" href="report/email-report-preview.html">Preview</a>
+        <a href="report/email-report-template.html">Template</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="label">Recurring</div>
+  <h2>The newsletters</h2>
+  <p>Two different products rather than the same one at two speeds. The monthly earns its open by teaching one thing. The quarterly is the piece somebody actually sits down with. Do not send both in the same month: if they collide, the quarterly wins and the monthly skips.</p>
+  <div class="cards">
+    <div class="card">
+      <div class="top">
+        <div class="kind">Monthly</div>
+        <h3>The monthly note</h3>
+        <p>One planning topic, a pulled out takeaway, a short calendar note and a single call to action. Short on purpose, because a monthly cadence only survives if each send is cheap to produce and cheap to read.</p>
+      </div>
+      <div class="meta">15 merge tokens &middot; 17KB &middot; newsletter/</div>
+      <div class="links">
+        <a class="primary" href="newsletter/newsletter-monthly-preview.html">Preview</a>
+        <a href="newsletter/newsletter-monthly-template.html">Template</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="top">
+        <div class="kind">Quarterly</div>
+        <h3>The quarterly review</h3>
+        <p>A cover statement, a feature, the ninety day deadline grid, a plain reading of the quarter, one anonymised pattern from real work, and two calls to action. The deadline grid is the part people forward.</p>
+      </div>
+      <div class="meta">28 merge tokens &middot; 24KB &middot; newsletter/</div>
+      <div class="links">
+        <a class="primary" href="newsletter/newsletter-quarterly-preview.html">Preview</a>
+        <a href="newsletter/newsletter-quarterly-template.html">Template</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="label">The rules</div>
+  <h2>What applies to every send</h2>
+  <table>
+    <tr><th>Rule</th><th>Why</th></tr>
+    <tr><td>The firm disclosure block is not editable</td><td>It is Garrett's registered disclosure, not boilerplate. Trimming it for design reasons is a compliance problem, not a layout choice.</td></tr>
+    <tr><td>Nothing sends without a review ID</td><td>Every approved public piece carries a Guardian advertising review ID and expiry in the footer. There is a <code>{{review_id}}</code> token waiting in each template.</td></tr>
+    <tr><td>Market commentary stays descriptive</td><td>No forecasts, no performance figures for a named holding, nothing that reads as a recommendation. If a send has nothing safe to say there, delete the block rather than reaching for something.</td></tr>
+    <tr><td>Physical address and unsubscribe are required</td><td>CAN-SPAM, on all of it.</td></tr>
+    <tr><td>Never overwrite a published image</td><td>The asset host caches hard and mail already delivered cannot be repaired. Change means a new filename.</td></tr>
+    <tr><td>Watch the file size</td><td>Gmail clips a message over roughly 102KB and hides everything after the cut, including the unsubscribe link. The largest template here is 28KB.</td></tr>
+  </table>
+  <p>Full detail on all of this is in <code>../brand/peachtree-brand-package.html</code>.</p>
+</div></section>
+
+<footer><div class="wrap">
+  <p><strong>Peachtree Planning email template suite</strong>, version 1.0, August 2026. Prepared by the Nolan Scott Team for Garrett Williamson, CFP&reg;, CEPA&reg;.</p>
+  <p style="margin-bottom:0">Nothing in this folder is approved for public distribution until it has been through Guardian advertising review.</p>
+</div></footer>
+
+</body>
+</html>

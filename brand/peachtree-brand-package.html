@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Peachtree Planning Brand Package</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Mulish:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* This document is itself built in the brand it documents. That is deliberate:
+   a brand package set in someone else's type is an argument against itself. */
+:root{
+  --red:#D2232A; --red-press:#B01D23; --red-tint:rgba(210,35,42,.07);
+  --ink:#111111; --slate:#394249; --charcoal:#202122;
+  --white:#FFFFFF; --paper:#F7F6F4; --hairline:#E4E2DF;
+  --body:#3A3A3A; --muted:#6B6B6B;
+  --r:10px;
+  --head:'Tinos','Times New Roman',Times,serif;
+  --sans:'Mulish',Arial,Helvetica,sans-serif;
+  --mono:ui-monospace,Consolas,'SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--body);font:16px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:0 28px}
+
+header.mast .band{background:var(--white);padding:26px 0;border-bottom:3px solid var(--red)}
+header.mast .band img{height:52px;display:block}
+header.mast .title{background:var(--white);padding:56px 0 50px;border-bottom:1px solid var(--hairline)}
+.mast h1{font:400 clamp(2.1rem,5.2vw,3.4rem)/1.1 var(--head);letter-spacing:-.01em;color:var(--ink)}
+.mast h1 em{font-style:italic;color:var(--red)}
+.mast .sub{color:var(--muted);margin-top:16px;max-width:640px;font-size:16.5px;line-height:1.65}
+.mast .meta{margin-top:30px;padding-top:20px;border-top:1px solid var(--hairline);display:flex;flex-wrap:wrap;gap:36px}
+.mast .meta div{font:700 10.5px/1.6 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.mast .meta span{display:block;color:var(--ink);font-size:14px;letter-spacing:0;text-transform:none;font-weight:500}
+
+section{padding:56px 0;border-bottom:1px solid var(--hairline)}
+section:last-of-type{border-bottom:0}
+.label{display:inline-flex;align-items:center;gap:9px;font:700 10.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.label::before{content:"";width:20px;height:2px;background:var(--red);flex:none}
+h2{font:400 30px/1.2 var(--head);color:var(--ink);margin-bottom:14px}
+h3{font:700 14.5px/1.4 var(--sans);color:var(--ink);margin:28px 0 8px}
+p{margin-bottom:14px;max-width:78ch}
+p.lede{font-size:17.5px;color:var(--ink);line-height:1.7}
+ul{margin:0 0 14px 20px}
+li{margin-bottom:7px;max-width:76ch}
+/* overflow-wrap:anywhere because the asset base URL is a single unbreakable
+   token wider than a 375px phone. Without it that one cell pushed the whole
+   table, and therefore the page, into horizontal scroll. */
+code{font:12.5px/1.5 var(--mono);background:var(--white);border:1px solid var(--hairline);padding:2px 6px;border-radius:4px;color:var(--ink);overflow-wrap:anywhere}
+a{color:var(--red)}
+
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:14px;margin:22px 0 8px}
+.sw .c{border:1px solid var(--hairline);background:var(--white);border-radius:var(--r);overflow:hidden}
+.sw .chip{height:94px}
+.sw .info{padding:12px 13px}
+.sw .nm{font:700 13px/1.3 var(--sans);color:var(--ink)}
+.sw .hx{font:500 12px/1.6 var(--mono);color:var(--muted);text-transform:uppercase}
+.sw .use{font-size:11.5px;color:var(--muted);line-height:1.5;margin-top:5px}
+
+.spec{background:var(--white);border:1px solid var(--hairline);border-radius:var(--r);padding:28px;margin:18px 0}
+.spec .d1{font:400 46px/1.1 var(--head);color:var(--ink)}
+.spec .d2{font:400 26px/1.2 var(--head);color:var(--ink);margin-top:18px}
+.spec .d3{font:700 10.5px/1 var(--sans);text-transform:uppercase;letter-spacing:.16em;color:var(--red);margin-top:20px}
+.spec .bd{font:15px/1.75 var(--sans);color:var(--body);margin-top:14px;max-width:62ch}
+.spec .note{font:500 11.5px/1.6 var(--mono);color:var(--muted);margin-top:20px;padding-top:14px;border-top:1px solid var(--hairline)}
+
+.logos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:20px 0}
+.logo{border:1px solid var(--hairline);background:var(--white);border-radius:var(--r);overflow:hidden}
+.logo .stage{display:flex;align-items:center;justify-content:center;padding:34px 24px;min-height:150px}
+.logo .stage.dark{background:var(--slate)}
+.logo .stage.paper{background:var(--paper)}
+.logo img{max-width:100%;height:auto}
+.logo .cap{padding:12px 14px;border-top:1px solid var(--hairline);font:500 11px/1.5 var(--mono);color:var(--muted);word-break:break-all}
+
+.comp{background:var(--white);border:1px solid var(--hairline);border-radius:var(--r);padding:26px;margin:16px 0}
+.comp .hd{font:700 10.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.comp .cap{margin:16px 0 0;font-size:13.5px;color:var(--muted);max-width:70ch}
+.btn-demo{display:inline-block;background:var(--red);color:#fff;font:700 16px/1 var(--sans);padding:17px 35px;text-decoration:none;border-radius:var(--r)}
+.band-demo{background:var(--slate);padding:30px 24px;color:#C9CDD1;border-radius:var(--r);text-align:center}
+.band-demo .k{font:700 10.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.62);margin-bottom:12px}
+.band-demo .v{font:700 42px/1.15 var(--head);color:#fff}
+.helper-demo .q{font:600 16.5px/1.5 var(--sans);color:var(--ink);margin-bottom:6px}
+.helper-demo .h{font:13.5px/1.55 var(--sans);color:var(--muted);margin-bottom:12px;max-width:52ch}
+.helper-demo .ctl{border:1px solid var(--hairline);border-radius:var(--r);padding:15px 16px;color:var(--muted);font-size:16px;max-width:420px}
+.score-demo{text-align:center;padding:8px 0}
+.score-demo .n{font:700 84px/1 var(--head);color:var(--ink)}
+.score-demo .d{font:400 22px/1 var(--head);color:var(--muted)}
+.score-demo .pill{display:inline-block;margin-top:12px;padding:9px 18px;border-radius:var(--r);font:600 14px/1.4 var(--sans)}
+.score-demo .pill.warn{color:var(--red);background:var(--red-tint);border:1px solid rgba(210,35,42,.28)}
+.score-demo .pill.calm{color:var(--ink);background:var(--paper);border:1px solid var(--hairline)}
+.bar-demo{margin-top:22px;text-align:left;max-width:460px;margin-left:auto;margin-right:auto}
+.bar-demo .row{display:flex;justify-content:space-between;font:700 14px/1.4 var(--sans);color:var(--ink);margin-bottom:6px}
+.bar-demo .row span{color:var(--red);font-size:13.5px}
+.bar-demo .track{height:7px;background:var(--hairline);border-radius:4px;overflow:hidden}
+.bar-demo .fill{height:100%;background:var(--red);border-radius:4px}
+
+.sig{display:flex;gap:22px;align-items:flex-start;background:var(--slate);border-radius:var(--r);padding:26px;margin:18px 0;flex-wrap:wrap}
+.sig img{width:78px;height:78px;object-fit:cover;flex:none;border-radius:39px}
+.sig .txt{min-width:260px;flex:1}
+.sig .nm{font:400 19px/1.2 var(--head);color:#fff}
+.sig .ti{font:500 13px/1.5 var(--sans);color:#C9CDD1;margin-top:5px}
+.sig .cn{font-size:13px;color:#fff;margin-top:12px;line-height:1.8}
+
+table{width:100%;border-collapse:collapse;margin:18px 0;background:var(--white);font-size:14px;
+  border:1px solid var(--hairline);border-radius:var(--r);overflow:hidden}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--hairline);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{background:var(--slate);color:#fff;font:700 10.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase}
+td code{font-size:12px}
+
+.do,.dont{border-left:4px solid;padding:16px 18px;background:var(--white);margin:12px 0;border-radius:0 var(--r) var(--r) 0}
+.do{border-color:var(--slate)}
+.dont{border-color:var(--red)}
+.do b,.dont b{display:block;font:700 10.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.do b{color:var(--slate)}
+.dont b{color:var(--red)}
+.do p,.dont p{margin:0;font-size:14px}
+
+.callout{background:var(--white);border:1px solid var(--hairline);border-left:4px solid var(--red);
+  border-radius:0 var(--r) var(--r) 0;padding:20px 22px;margin:18px 0}
+.callout p:last-child{margin-bottom:0}
+
+footer{background:var(--ink);color:#9A9A9A;padding:44px 0;font-size:13px}
+footer .wrap>div{max-width:74ch}
+footer strong{color:#fff}
+@media(max-width:600px){
+  section{padding:38px 0}
+  .mast .title{padding:40px 0 34px}
+  /* Wide content scrolls inside its own container rather than making the page
+     scroll sideways. Belt and braces alongside the code wrapping above. */
+  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .sig{gap:16px;padding:20px}
+  .score-demo .n{font-size:64px}
+}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="band"><div class="wrap">
+    <img src="https://nolanbowlin.github.io/peachtree-brand-assets/img/peachtree-planning-logo.png" alt="Peachtree Planning">
+  </div></div>
+  <div class="title"><div class="wrap">
+    <h1>Brand &amp; Email <em>Package</em></h1>
+    <div class="sub">The colours, type, components and rules that make a Peachtree Planning page or email look like Peachtree Planning. Built so anything in this folder can be opened, edited and sent without a designer in the loop.</div>
+    <div class="meta">
+      <div>Prepared for<span>Garrett Williamson, CFP&reg;, CEPA&reg;</span></div>
+      <div>Prepared by<span>Nolan Scott Team</span></div>
+      <div>Version<span>1.0, August 2026</span></div>
+    </div>
+  </div></div>
+</header>
+
+<section><div class="wrap">
+  <div class="label">The short version</div>
+  <h2>A light brand, a serif voice, one red</h2>
+  <p class="lede">Peachtree Planning already has a clear identity and it is quieter than most financial brands. A white page, a classical serif at a light weight, generous space, and a single red used sparingly. The job of anything built here is to not break that.</p>
+  <p>Nothing in this document was invented or eyeballed from a screenshot. The palette, the type and the button geometry were read out of the live computed styles on peachtreeplanning.com on 19 August 2026. Where a value was genuinely absent from the site and had to be added, it is marked as such in the table below.</p>
+  <table>
+    <tr><th>Asset base URL</th><td><code>https://nolanbowlin.github.io/peachtree-brand-assets/img/</code></td></tr>
+    <tr><th>Email width</th><td>600px fixed, single column, table layout</td></tr>
+    <tr><th>Page width</th><td>640px content column, centred, for the tool</td></tr>
+    <tr><th>Editor</th><td>Any HTML email tool. Paste the file into a code view, or send it as is.</td></tr>
+  </table>
+  <div class="callout">
+    <p><strong>The one rule that matters most.</strong> The site is light. White page, ink text, red accents, occasional dark bands. An earlier draft of this whole package came back dark crimson on near black, taken from an older internal document rather than from the site, and it looked like a different firm. If a deliverable arrives dark, it is wrong.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="label">Colour</div>
+  <h2>Palette</h2>
+  <p>One brand colour carries everything: Peachtree red. It appears 145 separate times on the home page and nowhere in large fields. Red is a signal, not a surface. It marks the thing you want clicked, the rule under a masthead, and the mark in the logo. When red starts filling panels, the brand stops reading as a wealth management firm.</p>
+
+  <h3>Brand</h3>
+  <div class="sw">
+    <div class="c"><div class="chip" style="background:#D2232A"></div><div class="info">
+      <div class="nm">Peachtree red</div><div class="hx">#D2232A</div>
+      <div class="use">Buttons, the logo mark, rules, accents, active states. The brand.</div></div></div>
+    <div class="c"><div class="chip" style="background:#B01D23"></div><div class="info">
+      <div class="nm">Red, pressed</div><div class="hx">#B01D23</div>
+      <div class="use">Added, not on the site. Hover and active only.</div></div></div>
+    <div class="c"><div class="chip" style="background:#111111"></div><div class="info">
+      <div class="nm">Ink</div><div class="hx">#111111</div>
+      <div class="use">Body copy, headlines, the wordmark, the deepest footer.</div></div></div>
+    <div class="c"><div class="chip" style="background:#394249"></div><div class="info">
+      <div class="nm">Slate</div><div class="hx">#394249</div>
+      <div class="use">Feature bands and email signature blocks.</div></div></div>
+    <div class="c"><div class="chip" style="background:#202122"></div><div class="info">
+      <div class="nm">Charcoal</div><div class="hx">#202122</div>
+      <div class="use">Secondary dark band. Used less than slate.</div></div></div>
+  </div>
+
+  <h3>Neutrals</h3>
+  <div class="sw">
+    <div class="c"><div class="chip" style="background:#FFFFFF;border-bottom:1px solid #E4E2DF"></div><div class="info">
+      <div class="nm">White</div><div class="hx">#FFFFFF</div>
+      <div class="use">Page background. The default state of everything.</div></div></div>
+    <div class="c"><div class="chip" style="background:#F7F6F4"></div><div class="info">
+      <div class="nm">Paper</div><div class="hx">#F7F6F4</div>
+      <div class="use">Added. Separates a card from the page without a border doing all the work.</div></div></div>
+    <div class="c"><div class="chip" style="background:#E4E2DF"></div><div class="info">
+      <div class="nm">Hairline</div><div class="hx">#E4E2DF</div>
+      <div class="use">Added. Card edges, input borders, section rules.</div></div></div>
+    <div class="c"><div class="chip" style="background:#6B6B6B"></div><div class="info">
+      <div class="nm">Muted</div><div class="hx">#6B6B6B</div>
+      <div class="use">Subheads, captions, helper text, fine print.</div></div></div>
+  </div>
+
+  <div class="dont"><b>Do not add accent colours</b>
+    <p>An early version of the scorecard ran a red, copper, green traffic light through the score. Copper and green are in no part of this palette, and a large orange number at the top of a results page read as another brand entirely. If something has to signal severity, it gets the brand red or it gets nothing.</p></div>
+  <div class="dont"><b>Do not use #CC0000</b>
+    <p>It appears twice on the live site and is almost certainly a hardcoded hex inside one embedded widget. It is close enough to the real red to look like a mistake rather than a choice. <code>#D2232A</code> is the red.</p></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="label">Type</div>
+  <h2>Two faces, both free</h2>
+  <p>Tinos for headlines, Mulish for everything else. Both are Google Fonts, both are free to embed commercially, and one of them solves the hardest problem in HTML email by accident.</p>
+
+  <div class="spec">
+    <div class="d1">Tinos, headlines</div>
+    <div class="d2">Set at weight 400, even at 90px</div>
+    <div class="d3">The site never bolds a display headline</div>
+    <div class="bd">The live site runs its largest headline, "Empowering People to Create Generational Impact", at 90px in weight 400. That lightness at scale is most of the brand's character. Bolding a display headline makes it look urgent, and urgent is the opposite of what a wealth management firm is selling. Italic Tinos in red is the one permitted emphasis.</div>
+    <div class="note">Tinos is metrically compatible with Times New Roman. In email, the fallback is dimensionally identical rather than merely similar, so a client with no webfont support renders the same layout.</div>
+  </div>
+
+  <div class="spec">
+    <div class="d2" style="font-family:var(--sans);font-weight:800;font-size:30px;margin-top:0">Mulish, everything else</div>
+    <div class="bd" style="font-size:16px">Body copy, UI, labels, buttons, fine print. A variable weight from 200 to 1000, though this system only ever uses 300, 400, 500, 600, 700 and 800. Falls back to Arial and Helvetica.</div>
+    <div class="d3">Weights in use</div>
+    <div class="bd" style="margin-top:8px">
+      <span style="font-weight:400">400 body copy</span> &nbsp;&middot;&nbsp;
+      <span style="font-weight:600">600 question text</span> &nbsp;&middot;&nbsp;
+      <span style="font-weight:700">700 buttons and labels</span> &nbsp;&middot;&nbsp;
+      <span style="font-weight:800">800 rarely, for a UI heading</span>
+    </div>
+    <div class="note">Uppercase labels take .14em to .16em of letter spacing. Nothing else is uppercased.</div>
+  </div>
+
+  <table>
+    <tr><th>Role</th><th>Face</th><th>Size and weight</th></tr>
+    <tr><td>Display headline</td><td>Tinos</td><td>clamp(38px, 9vw, 62px), weight 400</td></tr>
+    <tr><td>Section heading</td><td>Tinos</td><td>27px to 31px, weight 400</td></tr>
+    <tr><td>Body</td><td>Mulish</td><td>15px to 16px, weight 400, line height 1.7</td></tr>
+    <tr><td>Question</td><td>Mulish</td><td>16.5px, weight 600</td></tr>
+    <tr><td>Helper text</td><td>Mulish</td><td>13.5px, weight 400, muted, max 52ch</td></tr>
+    <tr><td>Eyebrow label</td><td>Mulish</td><td>10.5px to 11px, weight 700, uppercase, .16em</td></tr>
+    <tr><td>Fine print</td><td>Mulish or Arial</td><td>10.5px to 11px, line height 1.8</td></tr>
+  </table>
+  <div class="callout">
+    <p><strong>Form controls never go below 16px.</strong> iOS Safari zooms the page when a focused input is smaller than 16px and does not zoom back out on blur, so every screen after that point reads as overflowing to the right. This is not a type preference, it is a bug fix.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="label">Marks</div>
+  <h2>Three files, and one of them is a trap</h2>
+  <p>All three are hosted and public. Reference them by URL rather than attaching or embedding, so mail that sits in an inbox for years keeps rendering.</p>
+
+  <div class="logos">
+    <div class="logo">
+      <div class="stage"><img src="https://nolanbowlin.github.io/peachtree-brand-assets/img/peachtree-planning-logo.png" alt="Primary lockup" style="width:260px"></div>
+      <div class="cap">peachtree-planning-logo.png &middot; 600x120 &middot; white and paper only</div>
+    </div>
+    <div class="logo">
+      <div class="stage dark"><img src="https://nolanbowlin.github.io/peachtree-brand-assets/img/peachtree-planning-logo-reversed.png" alt="Reversed lockup" style="width:260px"></div>
+      <div class="cap">peachtree-planning-logo-reversed.png &middot; 600x120 &middot; slate and charcoal only</div>
+    </div>
+    <div class="logo">
+      <div class="stage paper"><img src="https://nolanbowlin.github.io/peachtree-brand-assets/img/peachtree-mark.png" alt="Mark" style="width:88px"></div>
+      <div class="cap">peachtree-mark.png &middot; 240x246 &middot; favicons, avatars, tight headers</div>
+    </div>
+  </div>
+
+  <div class="dont"><b>The trap</b>
+    <p>The primary lockup has a <em>black</em> wordmark. Put it on the slate band and the wordmark disappears, leaving a floating red mark. The instinct is to fix that in CSS with a filter or a colour override, which recolours the mark as well and leaves the lockup in two mismatched weights. Use the reversed file. That is what it is for.</p></div>
+  <div class="do"><b>Verified, not assumed</b>
+    <p>The reversed file was checked at the pixel level rather than taken on trust. Its wordmark region carries the same 4,941 opaque pixels as the light version, all of them white, with the red mark unchanged at 4 percent coverage. It is a genuine knockout, not the colour logo with a filter baked in.</p></div>
+
+  <h3>Clear space and minimum size</h3>
+  <ul>
+    <li>Clear space on all sides is the height of the red mark. Nothing crosses it.</li>
+    <li>Minimum width 150px on screen. Below that the wordmark's thin strokes break up.</li>
+    <li>Render at 200px to 220px in an email masthead, 170px in a footer.</li>
+    <li>Never stretch, rotate, add a shadow, or place the lockup on a photograph.</li>
+  </ul>
+</div></section>
+
+<section><div class="wrap">
+  <div class="label">Components</div>
+  <h2>The parts every template is built from</h2>
+
+  <div class="comp">
+    <div class="hd">Primary button</div>
+    <a class="btn-demo" href="#">Book thirty minutes</a>
+    <p class="cap">Sampled from the live site: <code>#D2232A</code>, white, Mulish 700, <code>border-radius:10px</code>, padding <code>17.776px 35.552px</code>, rounded here to <code>17px 35px</code>. The 10px radius is the most recognisable detail on this brand after the red. Square corners read as a different firm, so it does not get changed to suit a layout. In email it needs the VML fallback so Outlook draws a real rectangle.</p>
+  </div>
+
+  <div class="comp">
+    <div class="hd">Slate feature band</div>
+    <div class="band-demo">
+      <div class="k">Your retirement number</div>
+      <div class="v">$3.0M</div>
+    </div>
+    <p class="cap">The site uses full width slate bands to mark a moment. In this system it is reserved for the one thing the page is actually about, and for email signature blocks. Only the reversed logo goes on it.</p>
+  </div>
+
+  <div class="comp">
+    <div class="hd">Score and bars</div>
+    <div class="score-demo">
+      <div><span class="n">63</span><span class="d"> / 100</span></div>
+      <div class="pill calm">Workable, with real gaps. Time is still on your side if you move.</div>
+      <div class="bar-demo">
+        <div class="row"><div>R &middot; Runway</div><span>14.7/20</span></div>
+        <div class="track"><div class="fill" style="width:73.5%"></div></div>
+      </div>
+      <div style="margin-top:20px"><span class="pill warn">Significant gaps. This is fixable, and it gets harder every year you wait.</span></div>
+    </div>
+    <p class="cap">The number is always ink. At 84px or more of Tinos it does not need colour to carry weight, and leaving it ink means the only saturated thing on the screen is the brand red. The pill does the signalling and earns red exactly once, at the bottom band, where a warning is genuinely warranted. Bars are brand red on hairline.</p>
+  </div>
+
+  <div class="comp">
+    <div class="hd">Question and helper text</div>
+    <div class="helper-demo">
+      <div class="q">At what age do you want work to become optional?</div>
+      <div class="h">The age you could stop, not the age you plan to. Plenty of people keep working well past it. What matters here is when the choice becomes yours.</div>
+      <div class="ctl">Select an answer&hellip;</div>
+    </div>
+    <p class="cap">Helper text is a plain muted subtitle between the question and its control. It was briefly a filled box with a red rule down the left, which gave it the same visual weight as the question it was explaining and chopped a page of eight questions into eight interruptions. If a helper needs a box to get noticed, the question above it is the thing that needs rewriting.</p>
+  </div>
+
+  <div class="comp">
+    <div class="hd">Email signature block</div>
+    <div class="sig">
+      <img src="https://nolanbowlin.github.io/peachtree-brand-assets/img/garrett-williamson-headshot-sm.jpg" alt="Garrett Williamson">
+      <div class="txt">
+        <div class="nm">Garrett Williamson, CFP&reg;, CEPA&reg;</div>
+        <div class="ti">Peachtree Planning of Tennessee</div>
+        <div class="cn">615-282-5702<br>Garrett.Williamson&#64;PeachtreePlanning.com</div>
+      </div>
+    </div>
+    <p class="cap">Slate background, circular headshot at 66px, name in Tinos, contact in Mulish, reversed lockup centred underneath. Identical in all three email templates so the sign off is recognisable before it is read.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="label">Structure</div>
+  <h2>How a Peachtree email reads</h2>
+  <p>All three templates run the same spine. Learn it once and any of them can be edited safely.</p>
+  <table>
+    <tr><th>Block</th><th>What it does</th><th>Rule</th></tr>
+    <tr><td>Preheader</td><td>The grey line next to the subject in the inbox</td><td>Always written. Never left to default, or the client pulls body copy into it.</td></tr>
+    <tr><td>Masthead</td><td>Logo on white, 3px red rule beneath</td><td>Logo at 200px to 210px. Nothing else in this band except a date badge.</td></tr>
+    <tr><td>From my desk</td><td>Headshot left, greeting and opening right</td><td>Stacks to one column under 600px. First name merge token in the greeting.</td></tr>
+    <tr><td>The substance</td><td>One topic, or the report body</td><td>Ends in a pulled out takeaway on paper with a red left rule.</td></tr>
+    <tr><td>Call to action</td><td>Paper card, red top rule, one button</td><td>One primary action. The quarterly adds a soft secondary link, never a second button.</td></tr>
+    <tr><td>Signature</td><td>Slate block, headshot, reversed logo</td><td>Identical across all templates.</td></tr>
+    <tr><td>Compliance</td><td>Fine print on paper</td><td>Required. See below.</td></tr>
+  </table>
+  <div class="do"><b>Two versions of every document</b>
+    <p>Each email exists as a <code>-template.html</code> with merge tokens intact, and a <code>-preview.html</code> with every token filled so the layout and tone can be judged. The preview is generated from the template by <code>build-previews.js</code>, never hand maintained, because two copies of the same document edited in two places always drift, and the one that drifts is the one nobody opened recently.</p></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="label">Compliance</div>
+  <h2>The block that closes every send</h2>
+  <p>Garrett is a registered representative. This is not boilerplate that can be trimmed for design reasons, and it is not optional on anything that reaches the public. The wording below is verbatim from the peachtreeplanning.com footer as at 19 August 2026.</p>
+  <div class="comp">
+    <div class="hd">Required firm disclosure</div>
+    <p style="font-size:12.5px;line-height:1.8;color:var(--muted);max-width:none">Peachtree Planning is an Agency of The Guardian Life Insurance Company of America (Guardian), New York, NY. Securities products and advisory services offered through Park Avenue Securities LLC (PAS), member FINRA / SIPC. OSJ: 5600 Glenridge Dr Suite 600 East, Atlanta, GA 30342, Phone #404-260-1600. PAS is a wholly owned subsidiary of Guardian. Peachtree Planning is not an affiliate or subsidiary of PAS or Guardian. Garrett Williamson is a Registered Representative and Financial Advisor of PAS and a Financial Representative of Guardian. CA Insurance License #4138564.</p>
+    <p style="font-size:12.5px;line-height:1.8;color:var(--muted);max-width:none;margin-top:12px">Certified Financial Planner Board of Standards Inc. owns the certification marks CFP&reg;, CERTIFIED FINANCIAL PLANNER&trade; and CFP&reg; (with plaque design) in the U.S.</p>
+  </div>
+  <ul>
+    <li>A physical address and a working unsubscribe link are required by CAN-SPAM on all of it.</li>
+    <li>Every approved public piece carries a Guardian advertising review ID and an expiry, printed in the footer. Their own site ends <code>8894350.1 Exp 5.2028</code>. Each template has a <code>{{review_id}}</code> token waiting for its own.</li>
+    <li>Market commentary is the highest risk content in any send. Descriptive, never predictive. No forecasts, no performance figures for a named holding, nothing that reads as a recommendation. If there is nothing safe to say in a given send, delete the block rather than reaching for something.</li>
+  </ul>
+  <div class="callout">
+    <p><strong>Start review before the creative is finished.</strong> Review is the long pole on every piece here, and it is the one part of the schedule that cannot be compressed by working harder.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="label">Email safety</div>
+  <h2>What breaks email, and how these files avoid it</h2>
+  <table>
+    <tr><th>The problem</th><th>What these files do</th></tr>
+    <tr><td>Outlook renders with Word, which ignores flexbox, grid and most modern CSS</td><td>Table layout throughout, every style inlined, <code>role="presentation"</code> on layout tables</td></tr>
+    <tr><td>Outlook will not draw a rounded button from CSS</td><td>A VML <code>roundrect</code> fallback wrapped in an <code>[if mso]</code> block, with the same URL in both halves</td></tr>
+    <tr><td>Gmail clips a message over roughly 102KB and hides the footer, including the unsubscribe link</td><td>Largest template is 28KB. Check the size after adding images or long copy.</td></tr>
+    <tr><td>Gmail strips much of a <code>&lt;style&gt;</code> block</td><td>The style block is progressive enhancement only. Nothing in it is load bearing.</td></tr>
+    <tr><td>Some clients mangle a raw <code>@</code> in downloaded HTML</td><td>Encoded as <code>&amp;#64;</code> in every address</td></tr>
+    <tr><td>Images hosted somewhere you do not control disappear</td><td>Served from a repo we own via GitHub Pages. Mail already delivered cannot be repaired.</td></tr>
+    <tr><td>Replacing an image breaks mail already sent, because Pages caches hard</td><td>Never overwrite a shipped file. Add a new filename and point new sends at it.</td></tr>
+    <tr><td>Dark mode inverts a light template unpredictably</td><td>Explicit <code>color-scheme</code> and <code>supported-color-schemes</code> set to light, and real background colours on every cell rather than inherited ones</td></tr>
+  </table>
+</div></section>
+
+<section><div class="wrap">
+  <div class="label">Inventory</div>
+  <h2>What is in the folder</h2>
+  <table>
+    <tr><th>File</th><th>What it is</th></tr>
+    <tr><td><code>retirement-number.html</code></td><td>The lead generation tool. Self contained single page, eight sections, twenty five scored questions. Score shown free, dollar figures blurred behind the email gate.</td></tr>
+    <tr><td><code>email-report-template.html</code></td><td>The report that fulfils the gate. Merge tokens intact, for the send platform.</td></tr>
+    <tr><td><code>email-report-preview.html</code></td><td>The same report filled with sample data, for review.</td></tr>
+    <tr><td><code>newsletter-monthly-template.html</code></td><td>Short form monthly. One planning topic, one call to action.</td></tr>
+    <tr><td><code>newsletter-quarterly-template.html</code></td><td>Long form quarterly. Feature, ninety day deadlines, market note, anonymised story, two calls to action.</td></tr>
+    <tr><td><code>*-preview.html</code></td><td>Generated, never hand edited. Each carries a banner marking it as not approved for sending.</td></tr>
+    <tr><td><code>build-previews.js</code></td><td>Fills every template from <code>preview-data.json</code>. Fails loudly on any unfilled token.</td></tr>
+    <tr><td><code>preview-data.json</code></td><td>The sample values. Report figures are real model output for the persona described inside, so the preview reconciles if anyone checks the arithmetic.</td></tr>
+    <tr><td><code>BRAND.md</code></td><td>This document as plain text, for anyone working in an editor.</td></tr>
+    <tr><td><code>README.md</code></td><td>The tool, the money model, and the payload contract for the fulfilment side.</td></tr>
+    <tr><td><code>HANDOFF.md</code></td><td>Why things are the way they are. Read first on any future session.</td></tr>
+    <tr><td><code>brand-assets/</code></td><td>Working copy of the published image repo.</td></tr>
+  </table>
+</div></section>
+
+<footer><div class="wrap"><div>
+  <p style="color:#9A9A9A"><strong>Peachtree Planning Brand &amp; Email Package</strong>, version 1.0, August 2026. Prepared by the Nolan Scott Team for Garrett Williamson, CFP&reg;, CEPA&reg;.</p>
+  <p style="color:#9A9A9A;margin-bottom:0">Colour, type and geometry sampled from live computed styles on peachtreeplanning.com, 19 August 2026. This is an internal working document and has not itself been through Guardian advertising review. Nothing in this folder is approved for public distribution until it has.</p>
+</div></div></footer>
+
+</body>
+</html>
