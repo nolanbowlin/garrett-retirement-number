@@ -1,11 +1,39 @@
 # The Retirement Number
 
-Lead magnet for Garrett Williamson, CFP(R), CEPA(R), Peachtree Planning of Tennessee.
-Single file, no build step, no dependencies. Drop `tool/retirement-number.html` on any host.
+Marketing stack for Garrett Williamson, CFP(R), CEPA(R), Peachtree Planning of Tennessee.
+
+## Folder map
+
+```
+BRAND.md          Palette, type, logo rules, required disclosures.
+README.md         This file. The tool, the money model, the payload contract.
+HANDOFF.md        Why things are the way they are. Read first on a new session.
+
+assets/           The published image repo. A git checkout of
+                  nolanbowlin/peachtree-brand-assets, live on GitHub Pages.
+                  Commit and push and the images are live.
+brand/            The client facing brand package, as HTML.
+reference/        Dated capture of the live site the brand was sampled from.
+source/           Files as originally supplied, suffixed -original.
+templates/        Email templates. Open 00-index.html first.
+  report/         The report that fulfils the tool gate.
+  newsletter/     Monthly and quarterly.
+tool/             The retirement number lead generation page.
+```
+
+Every email exists twice: `-template.html` carries merge tokens for the send platform,
+`-preview.html` is the same file filled with sample data for review. Previews are
+generated, never hand edited. Rebuild from `templates/`:
+
+```
+node build-previews.js
+```
+
+## The tool
 
 Same machine as the TRADE Exit Score on nolanscottteam.com: landing, quiz, results with
 the score given away and the dollar figures blurred, email gate, confirmation with a
-booking link. Peachtree crimson brand throughout. No Nolan Scott branding anywhere.
+booking link. Peachtree Planning brand throughout, light rather than dark. No Nolan Scott branding anywhere.
 
 ## Before it goes live, three things
 

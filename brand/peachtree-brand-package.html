@@ -404,19 +404,20 @@ footer strong{color:#fff}
   <h2>What is in the folder</h2>
   <table>
     <tr><th>File</th><th>What it is</th></tr>
-    <tr><td><code>retirement-number.html</code></td><td>The lead generation tool. Self contained single page, eight sections, twenty five scored questions. Score shown free, dollar figures blurred behind the email gate.</td></tr>
-    <tr><td><code>email-report-template.html</code></td><td>The report that fulfils the gate. Merge tokens intact, for the send platform.</td></tr>
-    <tr><td><code>email-report-preview.html</code></td><td>The same report filled with sample data, for review.</td></tr>
-    <tr><td><code>newsletter-monthly-template.html</code></td><td>Short form monthly. One planning topic, one call to action.</td></tr>
-    <tr><td><code>newsletter-quarterly-template.html</code></td><td>Long form quarterly. Feature, ninety day deadlines, market note, anonymised story, two calls to action.</td></tr>
-    <tr><td><code>*-preview.html</code></td><td>Generated, never hand edited. Each carries a banner marking it as not approved for sending.</td></tr>
-    <tr><td><code>build-previews.js</code></td><td>Fills every template from <code>preview-data.json</code>. Fails loudly on any unfilled token.</td></tr>
-    <tr><td><code>preview-data.json</code></td><td>The sample values. Report figures are real model output for the persona described inside, so the preview reconciles if anyone checks the arithmetic.</td></tr>
-    <tr><td><code>BRAND.md</code></td><td>This document as plain text, for anyone working in an editor.</td></tr>
-    <tr><td><code>README.md</code></td><td>The tool, the money model, and the payload contract for the fulfilment side.</td></tr>
-    <tr><td><code>HANDOFF.md</code></td><td>Why things are the way they are. Read first on any future session.</td></tr>
-    <tr><td><code>brand-assets/</code></td><td>Working copy of the published image repo.</td></tr>
-  </table>
+    <tr><td><code>tool/retirement-number.html</code></td><td>The lead generation tool. Self contained single page, eight sections, twenty five scored questions. Score shown free, dollar figures blurred behind the email gate.</td></tr>
+        <tr><td><code>templates/00-index.html</code></td><td>Front door to the template suite. Open this first.</td></tr>
+        <tr><td><code>templates/report/</code></td><td>The report that fulfils the gate, as a template and a filled preview.</td></tr>
+        <tr><td><code>templates/newsletter/</code></td><td>Monthly and quarterly, each as a template and a filled preview.</td></tr>
+        <tr><td><code>templates/build-previews.js</code></td><td>Fills every template from <code>preview-data.json</code>. Fails loudly on any unfilled token.</td></tr>
+        <tr><td><code>templates/preview-data.json</code></td><td>The sample values. Report figures are real model output for the persona described inside, so the preview reconciles if anyone checks the arithmetic.</td></tr>
+        <tr><td><code>assets/</code></td><td>The published image repo itself, a git checkout. Commit and push and the images are live.</td></tr>
+        <tr><td><code>source/</code></td><td>Files as originally supplied, suffixed <code>-original</code>.</td></tr>
+        <tr><td><code>reference/</code></td><td>Dated capture of the live site sampling this package was built from.</td></tr>
+        <tr><td><code>brand/</code></td><td>This document.</td></tr>
+        <tr><td><code>BRAND.md</code></td><td>This document as plain text, for anyone working in an editor.</td></tr>
+        <tr><td><code>README.md</code></td><td>The tool, the money model, and the payload contract for the fulfilment side.</td></tr>
+        <tr><td><code>HANDOFF.md</code></td><td>Why things are the way they are. Read first on any future session.</td></tr>
+      </table>
 </div></section>
 
 <footer><div class="wrap"><div>
