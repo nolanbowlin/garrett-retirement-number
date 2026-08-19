@@ -64,7 +64,7 @@ detail after the red, and square corners read as a different firm.
 
 ## Logo and image hosting
 
-`assets/` in this folder IS the published image repo, `nolanbowlin/peachtree-brand-assets`,
+`assets/` in this folder is published by GitHub Pages from this repo,
 served publicly by GitHub Pages. It is a git checkout, not a copy: commit and push and the
 images are live. Verified serving 200 with correct content types on 2026-08-19.
 

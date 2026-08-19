@@ -10,7 +10,7 @@ README.md         This file. The tool, the money model, the payload contract.
 HANDOFF.md        Why things are the way they are. Read first on a new session.
 
 assets/           The published image repo. A git checkout of
-                  nolanbowlin/peachtree-brand-assets, live on GitHub Pages.
+                  served by GitHub Pages from this repo.
                   Commit and push and the images are live.
 brand/            The client facing brand package, as HTML.
 reference/        Dated capture of the live site the brand was sampled from.

@@ -61,7 +61,7 @@ or modify the Make scenario.
 | `templates/build-previews.js` + `preview-data.json` | Generates every preview from its template. Run after any template or data edit. |
 | `templates/newsletter/` monthly | Template and preview both built. Short form, one planning topic. 15 tokens. Preview is a September 2026 send. |
 | `templates/newsletter/` quarterly | Template and preview both built. Long form: feature, ninety day deadlines, market note, anonymised story, two CTAs. 28 tokens. Preview is a Q4 2026 send. |
-| `assets/` | The published image repo itself, a git checkout of `nolanbowlin/peachtree-brand-assets`. Live on GitHub Pages, verified 200. |
+| `assets/` | The published images, served by GitHub Pages from this repo. Live on GitHub Pages, verified 200. |
 | `templates/00-index.html` | Front door to the suite. Live thumbnails of all nine pieces. |
 | `templates/correspondence/` | Five cold outreach formats for referral partners, plus `correspondence-notes.md` on sequence, partner types and the FINRA and CAN-SPAM limits. |
 
@@ -89,7 +89,7 @@ away.
 
 ## Asset hosting, resolved
 
-Live at `nolanbowlin/peachtree-brand-assets`, served by GitHub Pages. The checkout is
+Served by GitHub Pages from this repo. The folder is
 `assets/` in this folder, matching the CCC layout: that folder IS the repo, so a commit
 and push puts images live.
 
