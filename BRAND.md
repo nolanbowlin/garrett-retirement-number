@@ -71,7 +71,7 @@ images are live. Verified serving 200 with correct content types on 2026-08-19.
 **Base URL**
 
 ```
-https://nolanbowlin.github.io/peachtree-brand-assets/img/
+https://nolanbowlin.github.io/garrett-retirement-number/assets/img/
 ```
 
 | File | Actual dimensions | Use |

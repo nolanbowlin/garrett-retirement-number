@@ -94,7 +94,7 @@ Live at `nolanbowlin/peachtree-brand-assets`, served by GitHub Pages. The checko
 and push puts images live.
 
 ```
-https://nolanbowlin.github.io/peachtree-brand-assets/img/
+https://nolanbowlin.github.io/garrett-retirement-number/assets/img/
 ```
 
 All five assets verified serving HTTP 200 with correct content types on 2026-08-19. The
